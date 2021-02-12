@@ -1,4 +1,14 @@
+.banner {
+  display: flex;
+}
+
 .banner--content-text {
-  max-width: 40%;
+  background: #cc4;
+  max-width: 50%;
   margin: 0 0 0 3em;
+}
+
+.banner--content-subtext {
+  display: flex;
+  justify-content: start;
 }
