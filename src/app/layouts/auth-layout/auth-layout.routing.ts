@@ -5,6 +5,7 @@ import { RegisterComponent } from "src/app/pages/area-auth/register/register.com
 
 
 export const AuthLayoutRoutes: Routes = [
+  {path: '', redirectTo:'home', pathMatch: 'full'},
   { path: "home", component: HomeComponent },
   { path: "login", component:  LoginComponent },
   { path: "cadastrar", component:  RegisterComponent },

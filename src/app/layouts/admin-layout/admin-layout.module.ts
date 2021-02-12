@@ -9,11 +9,15 @@ import { DashboardComponent } from "../../pages/area-logada/dashboard/dashboard.
 import { UserComponent } from "../../pages/area-logada/user/user.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { ComponentsModule } from "src/app/components/components.module";
+import { AuthLayoutComponent } from "src/app/layouts/auth-layout/auth-layout.component";
+import { AdminLayoutComponent } from "src/app/layouts/admin-layout/admin-layout.component";
 
 @NgModule({
   declarations: [
     DashboardComponent,
     UserComponent,
+    AdminLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -21,6 +25,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ComponentsModule
   ]
 })
 export class AdminLayoutModule {}

@@ -8,14 +8,16 @@ import { AuthLayoutRoutes } from 'src/app/layouts/auth-layout/auth-layout.routin
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { HomeFooterComponent } from 'src/app/shared/footer/footer.component';
+import { SharedModule } from '../../shared/shared.module';
+import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthLayoutComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
-  ]
+    SharedModule
+  ],
+  exports: [RouterModule]
 })
 export class AuthLayoutModule { }
