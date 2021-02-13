@@ -7,10 +7,14 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from "src/app/layouts/auth-layout/auth-layout.component";
 
 const routes: Routes = [
+  // {
+  //   path: "",
+  //   redirectTo: "index",
+  //   pathMatch: "full"
+  // },
   {
     path: "",
-    redirectTo: "index",
-    pathMatch: "full"
+    loadChildren: () => import("./layouts/auth-layout/auth-layout.module").then(m => m.AuthLayoutModule)
   },
   {
     path: "admin",
@@ -20,16 +24,6 @@ const routes: Routes = [
         path: "",
         loadChildren: () => import("./layouts/admin-layout/admin-layout.module").then(m => m.AdminLayoutModule)
 
-      }
-    ]
-  },
-  {
-    path: "index",
-    component: AuthLayoutComponent,
-    children: [
-      {
-        path: "",
-        loadChildren: () => import("./layouts/auth-layout/auth-layout.module").then(m => m.AuthLayoutModule)
       }
     ]
   },

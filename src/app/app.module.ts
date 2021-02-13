@@ -5,14 +5,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
-import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
-import { ComponentsModule } from "./components/components.module";
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-import { SharedModule } from "src/app/shared/shared.module";
 import { AuthLayoutModule } from "src/app/layouts/auth-layout/auth-layout.module";
 import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.module";
 

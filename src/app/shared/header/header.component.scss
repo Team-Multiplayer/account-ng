@@ -1,3 +1,7 @@
+.header-container {
+  background: #000;
+}
+
 .header--logo {
   font-family: 'Spartan', sans-serif;
   font-size: 50px;
@@ -7,4 +11,39 @@
 
 .header--logo span {
   color: #712AA9;
+  text-shadow: 0 0 4px #712AA9;
+
+}
+
+.white-logo {
+  color: #fff;
+}
+
+.dark-logo {
+  color: #000;
+}
+
+
+.nav--link {
+  color: #fff !important;
+}
+
+.navbar--register {
+  background: transparent !important;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 40px;
+  border: 8px solid;
+  border-image-slice: 1;
+  border-width: 3px;
+  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  box-shadow: 0 0 5px 1px #d53a9d;
+  transition: 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 15px 1px #d53a9d;
+  }
 }
