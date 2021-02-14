@@ -82,8 +82,8 @@
     "material-design-icons": "^3.0.1",
     "ngx-toastr": "13.2.0",
     "rxjs": "6.6.3",
-    "t-writer.js": "^1.0.4",
     "tslib": "2.0.3",
+    "typewriter-effect": "^2.17.0",
     "zone.js": "0.11.3"
   },
   "devDependencies": {

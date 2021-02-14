@@ -1,5 +1,5 @@
 <section class="register container">
-  <h1>Crie sua Account aqui!</h1>
+  <h1>Crie sua Account</h1>
   <div class='d-flex'>
     <form class="w-50 p-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
       <div class=" form-group" data-aos="fade-left">
@@ -9,6 +9,7 @@
           placeholder="Ex.: 00000000000"
           type="text"
           id="cpf"
+          formControlName="cpf"
         />
       </div>
       <div class=" form-group" data-aos="fade-left" data-aos-delay="100">
@@ -18,6 +19,7 @@
           placeholder="Seu nome"
           type="text"
           id="nome"
+          formControlName="nome"
         />
       </div>
       <div class=" form-group" data-aos="fade-left" data-aos-delay="200">
@@ -27,6 +29,7 @@
           placeholder="Seu login"
           type="text"
           id="login"
+          formControlName="login"
         />
       </div>
       <div class=" form-group" data-aos="fade-left" data-aos-delay="300">
@@ -34,21 +37,17 @@
         <input
           class=" form-control"
           placeholder="Sua senha"
-          type="text"
+          type="password"
           id="senha"
+          formControlName="senha"
         />
       </div>
-      <button class="" type="button" [disabled]="!registerForm.valid" data-aos="fade-up" data-aos-delay="500">Cadastrar!</button>
+      <button class="nav--link" type="submit" [disabled]="!registerForm.valid">Cadastrar<span>!</span></button>
     </form>
 
     <div class="image--container">
-      <h1 data-aos="fade-up">Crie sua conta e veja seu dinheiro rendendo mais que a poupança.</h1>
+      <h1 data-aos="fade-up" id="typed"> colocar typewriter</h1>
       <img src="../../../../assets/img/card-coins.png" alt="cartão de crédito com moedas." data-aos="fade-up" data-aos-delay="150">
     </div>
   </div>
 </section>
-
-
-
-<a routerLink="/home">Home</a>
-<a routerLink="/login">Login</a>
