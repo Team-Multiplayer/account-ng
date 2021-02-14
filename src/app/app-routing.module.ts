@@ -7,11 +7,6 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from "src/app/layouts/auth-layout/auth-layout.component";
 
 const routes: Routes = [
-  // {
-  //   path: "",
-  //   redirectTo: "index",
-  //   pathMatch: "full"
-  // },
   {
     path: "",
     loadChildren: () => import("./layouts/auth-layout/auth-layout.module").then(m => m.AuthLayoutModule)
@@ -38,7 +33,8 @@ const routes: Routes = [
     CommonModule,
     BrowserModule,
     RouterModule.forRoot(routes, {
-      useHash: true
+      useHash: true,
+      scrollPositionRestoration: "top"
     })
   ],
   exports: [RouterModule]

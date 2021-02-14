@@ -1,3 +1,17 @@
-<h1>Cadastro page</h1>
+<section class="register container">
+  <h1>Register Page</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+    <input type="text" formControlName="cpf" />
+    <input type="text" formControlName="nome" />
+    <input type="text" formControlName="login" />
+    <input type="password" formControlName="senha" />
+    <button type="submit" [disabled]="!registerForm.valid">Cadastrar</button>
+  </form>
+
+
+</section>
+
+
+
 <a routerLink="/home">Home</a>
 <a routerLink="/login">Login</a>

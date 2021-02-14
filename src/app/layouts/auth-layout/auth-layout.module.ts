@@ -5,7 +5,7 @@ import { RegisterComponent } from 'src/app/pages/area-auth/register/register.com
 import { LoginComponent } from 'src/app/pages/area-auth/login/login.component';
 import { RouterModule } from '@angular/router';
 import { AuthLayoutRoutes } from 'src/app/layouts/auth-layout/auth-layout.routing';
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../../shared/shared.module';
@@ -23,7 +23,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FontAwesomeModule,
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     NgbModule,
     SharedModule
