@@ -1,3 +1,16 @@
 .register {
   margin-top: 200px;
 }
+
+.image--container {
+  position: relative;
+
+  &>h1 {
+    position: absolute;
+    color: #fff;
+    top: -50px;
+    left: 50%;
+    width: 70%;
+    transform: translateX(-50%);
+  }
+}

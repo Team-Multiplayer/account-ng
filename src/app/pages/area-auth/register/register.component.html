@@ -1,14 +1,51 @@
 <section class="register container">
-  <h1>Register Page</h1>
-  <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
-    <input type="text" formControlName="cpf" />
-    <input type="text" formControlName="nome" />
-    <input type="text" formControlName="login" />
-    <input type="password" formControlName="senha" />
-    <button type="submit" [disabled]="!registerForm.valid">Cadastrar</button>
-  </form>
+  <h1>Crie sua Account aqui!</h1>
+  <div class='d-flex'>
+    <form class="w-50 p-4" [formGroup]="registerForm" (ngSubmit)="registerUser()">
+      <div class=" form-group" data-aos="fade-left">
+        <label for="cpf"> Cpf </label>
+        <input
+          class=" form-control"
+          placeholder="Ex.: 00000000000"
+          type="text"
+          id="cpf"
+        />
+      </div>
+      <div class=" form-group" data-aos="fade-left" data-aos-delay="100">
+        <label for="nome"> Nome </label>
+        <input
+          class=" form-control"
+          placeholder="Seu nome"
+          type="text"
+          id="nome"
+        />
+      </div>
+      <div class=" form-group" data-aos="fade-left" data-aos-delay="200">
+        <label for="login"> Login </label>
+        <input
+          class=" form-control"
+          placeholder="Seu login"
+          type="text"
+          id="login"
+        />
+      </div>
+      <div class=" form-group" data-aos="fade-left" data-aos-delay="300">
+        <label for="senha"> Senha </label>
+        <input
+          class=" form-control"
+          placeholder="Sua senha"
+          type="text"
+          id="senha"
+        />
+      </div>
+      <button class="" type="button" [disabled]="!registerForm.valid" data-aos="fade-up" data-aos-delay="500">Cadastrar!</button>
+    </form>
 
-
+    <div class="image--container">
+      <h1 data-aos="fade-up">Crie sua conta e veja seu dinheiro rendendo mais que a poupança.</h1>
+      <img src="../../../../assets/img/card-coins.png" alt="cartão de crédito com moedas." data-aos="fade-up" data-aos-delay="150">
+    </div>
+  </div>
 </section>
 
 
