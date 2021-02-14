@@ -15,6 +15,9 @@ export class HeaderComponent implements OnInit {
     let body = document.getElementsByTagName('body')[0];
     if (body.classList.contains('white-content')) {
       this.bodyColorWhite = true;
+
+
+
     }
   }
 

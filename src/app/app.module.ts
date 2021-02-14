@@ -11,6 +11,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { AuthLayoutModule } from "src/app/layouts/auth-layout/auth-layout.module";
 import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.mod
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    FontAwesomeModule,
   ],
   declarations: [AppComponent],
   providers: [],

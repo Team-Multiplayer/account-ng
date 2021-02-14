@@ -10,15 +10,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SharedModule } from '../../shared/shared.module';
 import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    AuthLayoutComponent
+    AuthLayoutComponent,
   ],
   imports: [
+    FontAwesomeModule,
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
     FormsModule,
