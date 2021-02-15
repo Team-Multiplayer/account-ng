@@ -4,11 +4,11 @@ export interface Usuario {
   cpf: string;
   login: string;
   senha: string;
-  contaCorrente: ContaCorrente;
-  contaCredito: ContaCorrente;
+  contaCorrente: Conta;
+  contaCredito: Conta;
 }
 
-interface ContaCorrente {
+interface Conta {
   id: number;
   numero: string;
   tipoConta: string;
