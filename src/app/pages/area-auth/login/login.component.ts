@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit {
       response => {
         if (response) {
           this.authService.setUsuario(response);
+          this.authService.setToken('token_de_teste');
           this.router.navigate(['/dashboard']);
         }
       }

@@ -14,7 +14,7 @@ export const AdminLayoutRoutes: Routes = [
   {
     path: '',
     component: AdminLayoutComponent,
-    // canActivate: [LogadoGuard],
+    canActivate: [LogadoGuard],
 
     children: [
       {

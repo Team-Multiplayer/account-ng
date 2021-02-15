@@ -34,6 +34,14 @@ export class AuthService {
     if (this.token){
       return this.token;
     }
+
+    const storedToken = localStorage.getItem('@token');
+    if (storedToken) {
+      this.token = storedToken;
+      return this.token;
+    }
+
+    return undefined;
   }
 
   logout() {
