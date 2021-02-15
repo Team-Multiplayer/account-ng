@@ -1,3 +1,27 @@
-<h1>Login Page</h1>
-<a routerLink="/home">Home</a>
-<a routerLink="/cadastrar">cadastrar</a>
+<div class="login container">
+  <h1 class="">Logar na Account</h1>
+  <form class="w-50 p-4" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <div class=" form-group" data-aos="fade-left" data-aos-delay="200">
+    <label for="login"> Login </label>
+    <input
+      class=" form-control"
+      placeholder="Seu login"
+      type="text"
+      id="login"
+      formControlName="login"
+    />
+  </div>
+  <div class=" form-group" data-aos="fade-left" data-aos-delay="300">
+    <label for="senha"> Senha </label>
+    <input
+      class=" form-control"
+      placeholder="Sua senha"
+      type="password"
+      id="senha"
+      formControlName="senha"
+    />
+  </div>
+  <button class="nav--link" type="submit" [disabled]="!loginForm.valid">Cadastrar<span>!</span></button>
+</form>
+
+</div>

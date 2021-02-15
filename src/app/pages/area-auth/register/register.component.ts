@@ -12,8 +12,8 @@ import { RegisterService } from 'src/app/pages/area-auth/register/register.servi
 export class RegisterComponent implements OnInit {
 
   registerForm = this.formBuilder.group({
-        cpf: ['', Validators.required],
-    nome: ['', Validators.required],
+    cpf:   ['', Validators.required],
+    nome:  ['', Validators.required],
     login: ['', Validators.required],
     senha: ['', Validators.required]
   })
@@ -36,13 +36,13 @@ export class RegisterComponent implements OnInit {
       .pauseFor(1000)
       .typeString('Prepare-se para ver seu dinheiro rendendo ')
       .pauseFor(500)
-      .typeString('<strong>mais</strong> que a poupança.')
-      .pauseFor(500)
-      .deleteChars(20)
-      .pauseFor(500)
-      .typeString('24h 7 dias na semana.')
+      .typeString('<strong>mais</strong> que a poupança. ')
       .pauseFor(500)
       .deleteChars(21)
+      .pauseFor(500)
+      .typeString('24h, sete dias na semana.')
+      .pauseFor(500)
+      .deleteChars(25)
       .typeString('com toda segurança.')
       .pauseFor(500)
       .deleteChars(19)
@@ -54,11 +54,10 @@ export class RegisterComponent implements OnInit {
       .start();
     }
 
-
-
-
-
   registerUser() {
-    this.registerService.cadastrar(this.registerForm.value).subscribe(response => {console.log(response)});
+    this.registerService.cadastrar(this.registerForm.value).pipe(
+      // .mergeMap(() => )
+
+    );
   }
 }

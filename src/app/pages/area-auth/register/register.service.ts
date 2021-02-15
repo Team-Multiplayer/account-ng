@@ -14,6 +14,6 @@ export class RegisterService {
 
   cadastrar(credenciais: Register): Observable<any> {
     console.log('chegou');
-    return this.httpClient.post<Register>('https://accenture-java-desafio.herokuapp.com/usuarios', credenciais);
+    return this.httpClient.post<Register>('http://localhost:8080/api/usuario/cadastrar', credenciais);
   }
 }
