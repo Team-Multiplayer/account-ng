@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Usuario } from 'src/app/shared/intefaces/auth-interfaces/usuario.interface';
 
 import { Usuario } from '../../shared/interfaces/usuario.interface';
 
