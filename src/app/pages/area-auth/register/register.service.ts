@@ -13,7 +13,7 @@ export class RegisterService {
   ) {}
 
   cadastrar(credenciais: Register): Observable<any> {
-    console.log('chegou');
+    console.log(credenciais);
     return this.httpClient.post<Register>('http://localhost:8080/api/usuario/cadastrar', credenciais);
   }
 }

@@ -1,29 +1,42 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Usuario } from 'src/app/shared/intefaces/auth-interfaces/usuario.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private usuario: any;
+  private usuario: Usuario | undefined;
   private token: string | undefined;
 
-  constructor() { }
+  constructor(
+    private router: Router
+    ) { }
 
-  setUsuario() {
-
+  setUsuario(userData: Usuario) {
+    this.usuario = userData;
+    localStorage.setItem('@user', JSON.stringify(userData));
   }
 
   getUsuario() {
+    if (this.usuario) {
+      return this.usuario;
+    }
+  }
 
+  setToken(token: string) {
+    this.token = token;
+    localStorage.setItem('@token', token);
   }
 
   getToken() {
-
+    return localStorage.getItem('@token');
   }
 
   logout() {
-
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
   estaLogado() {

@@ -3,6 +3,7 @@ import Typewriter from 'typewriter-effect/dist/core';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/pages/area-auth/register/register.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -20,7 +21,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private registerService: RegisterService
+    private registerService: RegisterService,
+    private router: Router
     ) { }
 
   ngOnInit(): void {
@@ -55,9 +57,10 @@ export class RegisterComponent implements OnInit {
     }
 
   registerUser() {
-    this.registerService.cadastrar(this.registerForm.value).pipe(
-      // .mergeMap(() => )
-
+    this.registerService.cadastrar(this.registerForm.value).subscribe(
+      response => {
+        console.log(response);
+      }
     );
   }
 }
