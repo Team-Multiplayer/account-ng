@@ -2,8 +2,6 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
-import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
-
 
 const routes: Routes = [
   {
@@ -12,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: "dashboard",
-    loadChildren: () => import("./layouts/admin-layout/admin-layout.module").then(m => m.AdminLayoutModule),
+    loadChildren: () => import("./layouts/admin-layout/admin-layout.module").then(m => m.AdminLayoutModule)
   },
   {
     path: "**",
@@ -22,10 +20,9 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    // CommonModule,
-    // BrowserModule,
+    CommonModule,
+    BrowserModule,
     RouterModule.forRoot(routes, {
-      // useHash: true,
       scrollPositionRestoration: "top"
     })
   ],
