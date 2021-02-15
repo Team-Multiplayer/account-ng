@@ -4,14 +4,16 @@ import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
 
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
+import { AuthLayoutComponent } from "src/app/layouts/auth-layout/auth-layout.component";
 
 const routes: Routes = [
   {
     path: "",
+    component: AuthLayoutComponent,
     loadChildren: () => import("./layouts/auth-layout/auth-layout.module").then(m => m.AuthLayoutModule)
   },
   {
-    path: "admin",
+    path: "",
     component: AdminLayoutComponent,
     children: [
       {
@@ -21,18 +23,18 @@ const routes: Routes = [
       }
     ]
   },
-  {
-    path: "**",
-    redirectTo: "/home"
-  }
+  // {
+  //   path: "**",
+  //   redirectTo: "home"
+  // }
 ];
 
 @NgModule({
   imports: [
-    CommonModule,
-    BrowserModule,
+    // CommonModule,
+    // BrowserModule,
     RouterModule.forRoot(routes, {
-      useHash: true,
+      // useHash: true,
       scrollPositionRestoration: "top"
     })
   ],

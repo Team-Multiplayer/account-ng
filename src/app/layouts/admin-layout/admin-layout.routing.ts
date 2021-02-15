@@ -5,21 +5,23 @@ import { DashboardComponent } from "../../pages/area-logada/dashboard/dashboard.
 import { UserComponent } from "../../pages/area-logada/user/user.component";
 
 export const AdminLayoutRoutes: Routes = [
-  {
-    path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full'
-  },
   // {
   //   path: '',
-  //   component: AdminLayoutComponent
+  //   redirectTo: 'dashboard',
+  //   pathMatch: 'full'
   // },
   {
-    path: 'dashboard',
-    component: DashboardComponent
-  },
-  {
-    path: 'user',
-    component: UserComponent
+    path: '',
+    component: AdminLayoutComponent,
+    children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'user',
+        component: UserComponent
+      },
+    ]
   },
 ];

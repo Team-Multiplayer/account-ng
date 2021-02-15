@@ -6,11 +6,11 @@ import { RegisterComponent } from "src/app/pages/area-auth/register/register.com
 
 
 export const AuthLayoutRoutes: Routes = [
-  {
-    path: "",
-    redirectTo: "home",
-    pathMatch: "full"
-  },
+  // {
+  //   path: "",
+  //   redirectTo: "home",
+  //   pathMatch: "full"
+  // },
   {
     path: "",
     component: AuthLayoutComponent,
