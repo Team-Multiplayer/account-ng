@@ -5,6 +5,7 @@ import { LoginService } from 'src/app/pages/area-auth/login/login.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { slideInAnimation } from 'src/app/shared/animations/animation';
 import { LoginResponse } from './login.interfaces';
+import { Usuario } from "../../../shared/interfaces/usuario.interface";
 
 @Component({
   selector: 'app-login',
@@ -30,6 +31,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
@@ -76,11 +78,18 @@ export class LoginComponent implements OnInit {
   login() {
     this.estaCarregando = true;
 
-    this.loginService.logar(this.loginForm.value)
-      .subscribe(
-        response => this.onSuccessLogin(),
-        error => this.onErrorLogin(error)
-      );
+    const usuario: Usuario = JSON.parse('{"id":220,"cpf":"37116515852","nome":"Danilo Elias","login":"danilose","senha":"$2a$10$Wb8gyCzJpDX4bI0zq.uIh.q5oj0E7cTmldFNNksY2WWaOiF3E8Y..","senhaTemporaria":null,"redefinirSenha":false}');
+    this.authService.setUsuario(usuario);
+    const token: string = 'Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJkYW5pbG9zZSIsImlkVXN1YXJpbyI6MjIwLCJhdXRob3JpdGllcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEzNDc1NDQ1LCJleHAiOjE2MTM0NzkwNDV9.14RrUK8AqMxKJxPM6VxoY2EjlRlpiHiLOYUhXFM62HlozM1DCrxmuWAf4AmmlettI6G4SaeYSxJ22pC5sHlxpQ';
+    this.authService.setToken(token);
+
+    this.onSuccessLogin();
+
+    // this.loginService.logar(this.loginForm.value)
+    //   .subscribe(
+    //     response => this.onSuccessLogin(),
+    //     error => this.onErrorLogin(error)
+    //   );
   }
 
   onSuccessLogin() {

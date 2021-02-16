@@ -12,19 +12,26 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ComponentsModule } from "src/app/components/components.module";
 import { AdminLayoutComponent } from "src/app/layouts/admin-layout/admin-layout.component";
 import { LancamentoComponent } from "src/app/pages/area-logada/lancamento/lancamento.component";
+import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar/depositar.component";
+import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.component";
+import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
 
 @NgModule({
   declarations: [
     DashboardComponent,
     UserComponent,
     AdminLayoutComponent,
-    LancamentoComponent
+    LancamentoComponent,
+    DepositarComponent,
+    PagarComponent,
+    TransferirComponent,
   ],
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     HttpClientModule,
     NgbModule,
+    FormsModule,
     ReactiveFormsModule,
     ComponentsModule
   ]
