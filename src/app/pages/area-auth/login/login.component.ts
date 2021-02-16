@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/pages/area-auth/login/login.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { slideInAnimation } from 'src/app/shared/animations/animation';
+import { LoginResponse } from './login.interfaces';
 
 @Component({
   selector: 'app-login',
@@ -15,14 +16,19 @@ import { slideInAnimation } from 'src/app/shared/animations/animation';
 })
 export class LoginComponent implements OnInit {
 
-  loginForm = this.formBuilder.group({
+  @ViewChild('loginInput') loginInput: ElementRef | undefined;
+  @ViewChild('senhaInput') senhaInput: ElementRef | undefined;
+
+  loginForm: FormGroup = this.formBuilder.group({
     login: ['', Validators.required],
-    senha: ['', Validators.required]
-  })
+    senha: ['', Validators.required],
+  });
+
+  estaCarregando: boolean = false;
+  erroNoLogin: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
     private loginService: LoginService,
     private router: Router
   ) { }
@@ -30,16 +36,60 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  loginUser() {
-    this.loginService.logar(this.loginForm.value)
-    .subscribe(
-      response => {
-        if (response) {
-          this.authService.setUsuario(response);
-          this.authService.setToken('token_de_teste');
-          this.router.navigate(['/dashboard']);
-        }
-      }
-    );
+  onSubmit() {
+    this.erroNoLogin = false;
+
+    if (!this.loginForm.valid) {
+      this.validarCamposDoFormulario(this.loginForm);
+      this.focarNoPrimeiroInputInvalido(this.loginForm);
+      return;
+    }
+
+    this.login();
   }
+
+  private validarCamposDoFormulario(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.get(field) as FormControl;
+      control.markAsTouched();
+    });
+  }
+
+  private focarNoPrimeiroInputInvalido(form: FormGroup) {
+    for (let control of Object.keys(form.controls)) {
+      if (form.controls[control].invalid) {
+        const input = `${control}Input` as keyof LoginComponent;
+        (this[input] as ElementRef).nativeElement.focus();
+        break;
+      }
+    }
+  }
+
+  exibeErro(nomeControle: string) {
+    if (!this.loginForm.controls[nomeControle]) {
+      return false;
+    }
+
+    return this.loginForm.controls[nomeControle].invalid && this.loginForm.controls[nomeControle].touched;
+  }
+
+  login() {
+    this.estaCarregando = true;
+
+    this.loginService.logar(this.loginForm.value)
+      .subscribe(
+        response => this.onSuccessLogin(response),
+        error => this.onErrorLogin(error)
+      );
+  }
+
+  onSuccessLogin(response: LoginResponse) {
+    this.router.navigate(['dashboard']);
+  }
+
+  onErrorLogin(error: any) {
+    this.erroNoLogin = true;
+    this.estaCarregando = false;
+  }
+
 }
