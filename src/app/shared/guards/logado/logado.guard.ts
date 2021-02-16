@@ -3,27 +3,34 @@ import { CanActivate, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth/auth.service';
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class LogadoGuard implements CanActivate {
 
-  estaLogado: boolean = false;
 
   constructor(
-    private router: Router,
-    private authService: AuthService
-  ) { }
+    private authService: AuthService,
+    private router: Router
+    ) { }
 
-  canActivate(): boolean {
-    const estaLogado = this.authService.getToken();
+    canActivate(): boolean {
 
-    if (estaLogado) {
+
+      // REMOVER
       return true;
-    }
 
-    this.router.navigate(['/home']);
-    return false;
-  }
+
+
+      // se está logado
+      if (this.authService.estaLogado()) {
+        // deixa passar pra página
+        return true;
+      }
+      // se estiver logado manda pra home e não deixa passar
+      this.router.navigate(['home'])
+      return false;
+    }
 
 }

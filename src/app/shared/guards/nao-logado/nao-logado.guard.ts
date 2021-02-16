@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
+import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/service/auth/auth.service';
 
 @Injectable({
@@ -10,16 +11,21 @@ export class NaoLogadoGuard implements CanActivate {
   constructor(
     private authService: AuthService,
     private router: Router
-  ) {}
+  ){}
 
   canActivate(): boolean {
-    const estaLogado = this.authService.getToken();
 
-    if (!estaLogado) {
+    // REMOVER
+    return true;
+
+
+    // se não está logado
+    if (!this.authService.estaLogado()) {
+      // deixa passar pra página
       return true;
     }
-
-    this.router.navigate(['/dashboard']);
+    // se estiver logado manda pra home e não deixa passar
+    this.router.navigate(['home'])
     return false;
   }
 
