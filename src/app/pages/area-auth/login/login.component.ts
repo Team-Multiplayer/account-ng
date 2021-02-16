@@ -78,12 +78,12 @@ export class LoginComponent implements OnInit {
 
     this.loginService.logar(this.loginForm.value)
       .subscribe(
-        response => this.onSuccessLogin(response),
+        response => this.onSuccessLogin(),
         error => this.onErrorLogin(error)
       );
   }
 
-  onSuccessLogin(response: LoginResponse) {
+  onSuccessLogin() {
     this.router.navigate(['dashboard']);
   }
 

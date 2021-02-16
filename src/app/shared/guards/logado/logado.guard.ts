@@ -16,7 +16,9 @@ export class LogadoGuard implements CanActivate {
   ) { }
 
   canActivate(): boolean {
-    if (this.authService.getToken()) {
+    const estaLogado = this.authService.getToken();
+
+    if (estaLogado) {
       return true;
     }
 
