@@ -15,12 +15,19 @@ export class AuthService {
     ) { }
 
   setUsuario(userData: Usuario) {
+    console.log(userData);
     this.usuario = userData;
     localStorage.setItem('@user', JSON.stringify(userData));
   }
 
   getUsuario() {
     if (this.usuario) {
+      return this.usuario;
+    }
+
+    const storedUser = JSON.parse(localStorage.getItem('@user'));
+    if (storedUser) {
+      this.usuario = storedUser;
       return this.usuario;
     }
   }

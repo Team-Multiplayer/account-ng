@@ -15,8 +15,8 @@ export const AuthLayoutRoutes: Routes = [
     path: "",
     component: AuthLayoutComponent,
     children: [
-      { path: "home", component: HomeComponent },
-      { path: "login", component:  LoginComponent },
+      { path: "home", component: HomeComponent, data: {animation: 'HomePage'} },
+      { path: "login", component:  LoginComponent, data: {animation: 'AboutPage'}},
       { path: "cadastrar", component:  RegisterComponent },
     ]
   },

@@ -1,9 +1,10 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterOutlet } from "@angular/router";
 import * as Aos from "aos";
 
 @Component({
   selector: "app-root",
-  template: "<router-outlet></router-outlet>",
+  templateUrl: "./app.component.html",
 })
 export class AppComponent implements OnInit {
 
@@ -15,6 +16,11 @@ export class AppComponent implements OnInit {
       once: true,
       delay: 0,
     });
+  }
+
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }
 
 }

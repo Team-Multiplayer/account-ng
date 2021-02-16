@@ -1,0 +1,45 @@
+.success--message {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.show-message {
+  display: block;
+  animation: show 2s 1;
+  transform: translateY(-16px);
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-16px);
+    }
+  }
+}
+
+.expand-box {
+  animation: expand 2s 1;
+  transform: translateY(-16px);
+
+  @keyframes expand {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-16px);
+    }
+  }
+}
+
+
+.transaction-success {
+  transform: translateX(0);
+}

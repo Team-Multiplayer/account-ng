@@ -14,11 +14,14 @@ import { AuthLayoutModule } from "src/app/layouts/auth-layout/auth-layout.module
 import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.module";
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { registerLocaleData } from "@angular/common";
+import { LancamentoComponent } from './pages/area-logada/lancamento/lancamento.component';
+import { BrowserModule } from "@angular/platform-browser";
 
 registerLocaleData(localePT, 'pt');
 
 @NgModule({
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
