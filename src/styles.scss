@@ -8,45 +8,82 @@ button, a {
 }
 
 
-.custom--btn {
-  background: transparent !important;
+.nav--link {
+  background: transparent;
   color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+
   position: relative;
-  width: 150px;
-  height: 40px;
-  padding: 0.4em 2em;
-  border: 2px solid #fff;
-  transition: 0.2s ease-in-out;
-  &:hover {
-    color: #000;
-  }
+  margin-top: 2em;
 
-  &>span {
-    position: absolute;
-    color: #000;
-    z-index: 50;
+  border: none;
+  text-decoration: none;
+
+  & span {
+    color: #46e2b3;
   }
 }
 
-.custom--btn:before {
-    content: '';
-    background: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transform: scaleX(0);
-    transition: 0.2s ease-in-out;
-    z-index: 0;
+.nav--link:after {
+  display:block;
+  content: '';
+  border-radius: 8px;
+  border-bottom: solid 3px #46e2b3;
+  transform: scaleX(0);
+  transition: transform 350ms ease-in-out;
+  transform-origin:100% 50%
 }
 
-.custom--btn:hover:before,
-.custom--btn:active:before,
-.custom--btn:focus:before {
+.nav--link:active:after,
+.nav--link:focus:after,
+.nav--link:hover:after {
   transform: scaleX(1);
+  transform-origin:0 50%;
 }
 
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// .custom--btn {
+//   background: transparent !important;
+//   color: #fff;
+//   position: relative;
+//   width: 150px;
+//   height: 40px;
+//   padding: 0.4em 2em;
+//   border: 2px solid #fff;
+//   transition: 0.2s ease-in-out;
+//   &:hover {
+//     color: #000;
+//   }
+
+//   &>span {
+//     position: absolute;
+//     color: #000;
+//     z-index: 50;
+//   }
+// }
+
+// .custom--btn:before {
+//     content: '';
+//     background: #fff;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     transform: scaleX(0);
+//     transition: 0.2s ease-in-out;
+//     z-index: 0;
+// }
+
+// .custom--btn:hover:before,
+// .custom--btn:active:before,
+// .custom--btn:focus:before {
+//   transform: scaleX(1);
+// }
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
