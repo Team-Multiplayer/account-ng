@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
 import { Routes, RouterModule } from "@angular/router";
+import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
 
 const routes: Routes = [
   {

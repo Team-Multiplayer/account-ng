@@ -64,7 +64,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
 
     const user = this.authService.getUsuario();
-    this.userName = user.nome.split(' ')[0];
+    this.userName = user.login.split(' ')[0];
   }
 
   collapse() {
@@ -182,7 +182,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         return this.listTitles[item].title;
       }
     }
-    return "Dashboard";
+    return "Bank";
   }
 
   open(content) {

@@ -9,7 +9,6 @@ import { AuthService } from 'src/app/service/auth/auth.service';
 })
 export class LogadoGuard implements CanActivate {
 
-
   constructor(
     private authService: AuthService,
     private router: Router
@@ -17,14 +16,10 @@ export class LogadoGuard implements CanActivate {
 
     canActivate(): boolean {
 
-
-      // REMOVER
-      return true;
-
-
-
+      // return true;
+      const estaLogado = this.authService.estaLogado();
       // se está logado
-      if (this.authService.estaLogado()) {
+      if (estaLogado) {
         // deixa passar pra página
         return true;
       }

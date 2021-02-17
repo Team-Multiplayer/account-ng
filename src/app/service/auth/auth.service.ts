@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-
-import { Usuario } from '../../shared/interfaces/usuario.interface';
+import { TokenBearer } from 'src/app/shared/intefaces/auth-interfaces/token-bearer.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private usuario: Usuario | undefined;
+  private usuario: TokenBearer | undefined;
   private token: string | undefined;
 
   constructor(
     private router: Router
     ) { }
 
-  setUsuario(usuario: Usuario) {
+  setUsuario(usuario: TokenBearer) {
     this.usuario = usuario;
     localStorage.setItem('usuario', JSON.stringify(usuario));
   }
@@ -54,7 +53,7 @@ export class AuthService {
   }
 
   logout() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['login']);
     delete this.token;
     delete this.usuario;
     localStorage.clear();

@@ -1,3 +1,4 @@
+import { AboutComponent } from './../../pages/area-auth/about/about/about.component';
 import { HomeComponent } from './../../pages/area-auth/home/home.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -13,6 +14,7 @@ import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.com
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { NaoLogadoGuard } from 'src/app/shared/guards/nao-logado/nao-logado.guard';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,7 @@ import { HeaderComponent } from 'src/app/shared/header/header.component';
     LoginComponent,
     RegisterComponent,
     AuthLayoutComponent,
+    AboutComponent
   ],
   imports: [
     FontAwesomeModule,
@@ -31,6 +34,6 @@ import { HeaderComponent } from 'src/app/shared/header/header.component';
     NgbModule,
     SharedModule
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AuthLayoutModule { }

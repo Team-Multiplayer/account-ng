@@ -15,6 +15,7 @@ import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.mod
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { registerLocaleData } from "@angular/common";
 import { BrowserModule } from "@angular/platform-browser";
+import { AboutComponent } from './pages/area-auth/about/about/about.component';
 
 registerLocaleData(localePT, 'pt');
 
@@ -22,7 +23,6 @@ registerLocaleData(localePT, 'pt');
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
     AuthLayoutModule,
     AdminLayoutModule,
@@ -30,7 +30,6 @@ registerLocaleData(localePT, 'pt');
     RouterModule,
     AppRoutingModule,
     FontAwesomeModule,
-    FormsModule,
   ],
   declarations: [
     AppComponent,

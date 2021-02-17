@@ -5,6 +5,7 @@ h1,h2,h3,h4,h5,h6 {
 
 button, a {
   cursor: pointer !important;
+  outline: none;
 }
 
 
@@ -42,6 +43,60 @@ button, a {
   transform-origin:0 50%;
 }
 
+
+// BOTÃO PARA REPETIR TRANSAÇÕES
+
+.repeat--payment {
+  background: transparent;
+  color: #fff;
+  min-width: 150px;
+  height: 40px;
+  border: none;
+  // border: 2px solid #46e2b3;
+  transition: 0.2s ease-in-out;
+
+  &:hover i {
+    transition: 0.3s ease-in-out;
+    transform: rotate(360deg);
+  }
+
+}
+
+.disabled-btn {
+  opacity: 0.3;
+
+  &:hover {
+    cursor: default !important;
+  }
+}
+
+
+// SUCCESS MESSAGE STYLES
+
+.success--message {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.show-message {
+  display: block;
+  animation: show 2s 1;
+  transform: translateY(-16px);
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-16px);
+    }
+  }
+}
 
 
 

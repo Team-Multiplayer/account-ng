@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { take, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { LoginCredenciais } from 'src/app/shared/intefaces/auth-interfaces/login.interface';
+import { TokenBearer } from 'src/app/shared/intefaces/auth-interfaces/token-bearer.interface';
 import { Usuario } from 'src/app/shared/interfaces/usuario.interface';
 import { environment } from 'src/environments/environment';
 import { LoginResponse } from './login.interfaces';
@@ -20,14 +21,14 @@ export class LoginService {
     private authService: AuthService,
   ) { }
 
-  logar(credenciais: LoginCredenciais): Observable<Usuario> {
-    return this.http.post<Usuario>(this.API_URL + '/login', credenciais)
+  logar(credenciais: LoginCredenciais): Observable<TokenBearer> {
+    return this.http.post<TokenBearer>(this.API_URL + '/login', credenciais)
       .pipe(
         take(1),
         tap( response => {
           console.log(response)
           this.authService.setUsuario(response);
-          this.authService.setToken('token_de_teste');
+          this.authService.setToken(response.token);
         })
       );
   }

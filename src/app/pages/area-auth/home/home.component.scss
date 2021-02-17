@@ -52,6 +52,26 @@ h1,h2,h3,h4,h5,h6, p {
   }
 }
 
+@media screen and (max-width: 1250px) {
+  img {
+    height: 500px;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  img {
+    display: none;
+  }
+
+  .banner {
+    justify-content: center;
+  }
+
+  .banner--content-text {
+    max-width: 80%;
+  }
+}
+
 // ABOUT SECTION
 
 .about--title,
@@ -93,7 +113,7 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .neg-margin {
-  margin-bottom: -100px;
+  margin-bottom: -64px;
 }
 
 .index-up {
@@ -110,8 +130,10 @@ h1,h2,h3,h4,h5,h6, p {
 }
 
 .row--image {
+  display: flex;
+  justify-content: center;
   background: #fff;
-  width: 70%;
+  width: 55%;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.3);
 }
 
@@ -151,6 +173,15 @@ h1,h2,h3,h4,h5,h6, p {
     // margin-left: 2em;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .commitment {
+    flex-direction: column;
+    justify-content: space-around;
+  }
+}
+
+
 // SERVICES
 .gallery {
   background-image: linear-gradient(to right, #3f3fe9, #324dea, #2858ea, #2363e8, #266ce6, #2975e8, #2f7ee9, #3886ea, #3f91f0, #489df5, #53a8fa, #5fb3ff);
@@ -229,7 +260,9 @@ h1,h2,h3,h4,h5,h6, p {
 
 .gallery--card-text {
   margin-left: 16px;
-  color: #000;
+  color: #000 !important;
+
+
 }
 
 .gallery--card-button {

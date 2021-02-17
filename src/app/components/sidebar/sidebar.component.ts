@@ -16,25 +16,25 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "lancamento",
     title: "Lançamento",
-    icon: "icon-chart-pie-36",
+    icon: "icon-credit-card",
     class:""
   },
   {
     path: "depositar",
     title: "Depositar",
-    icon: "icon-chart-pie-36",
+    icon: "icon-money-coins",
     class:""
   },
   {
     path: "pagar",
     title: "Pagar",
-    icon: "icon-chart-pie-36",
+    icon: "icon-paper",
     class:""
   },
   {
     path: "transferir",
     title: "Transferir",
-    icon: "icon-chart-pie-36",
+    icon: "icon-send",
     class:""
   },
   {

@@ -1,4 +1,4 @@
-<div class=" content">
+<div class=" content" data-aos="fade-right">
 
   <h1>Realize uma Transferência</h1>
   <div class="lancamento" [@openClose]="isOpen ? 'open' : 'closed'">
@@ -90,7 +90,15 @@
 
         </div>
         <div class=" card-footer">
-          <button class=" btn btn-fill btn-danger" [disabled]="!lancamentoForm.valid" (click)="toggle()" type="submit">Transferir</button>
+          <button
+          [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
+          class="nav--link"
+          [disabled]="!lancamentoForm.valid"
+          (click)="toggle()"
+          type="submit"
+          >
+            Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -106,7 +114,10 @@
       <h5>Destino: {{lancamentoForm.value.numeroContaDestino}}</h5>
       <h5>Tipo: {{lancamentoForm.value.tipo}}</h5>
 
-      <button (click)="[toggle(), resetForm()]">Nova Transferência</button>
+      <button class="repeat--payment" (click)="[toggle(), resetForm()]">
+        Nova Transferência
+        <i class="tim-icons icon-refresh-01 ml-1 text-success"></i>
+      </button>
     </div>
   </div>
 
