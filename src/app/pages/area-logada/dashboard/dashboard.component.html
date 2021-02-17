@@ -4,29 +4,6 @@
 
     </div>
   </section>
-
-
-  <div class=" row">
-    <div class=" col-12">
-      <div class=" card card-chart">
-        <div class=" card-header">
-          <div class=" row">
-            <div class=" col-sm-6 text-left">
-              <h5 class=" card-category">Movimentações</h5>
-              <h2 class=" card-title">Extratos</h2>
-            </div>
-            <div class=" col-sm-6">
-
-            </div>
-          </div>
-        </div>
-        <div class=" card-body">
-          <div class=" chart-area"><canvas id="chartBig1"> </canvas></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class=" row">
     <div class=" col-lg-6">
       <div class=" card card-chart">
@@ -42,12 +19,12 @@
                   <th>Valor</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr *ngIf="contaCorrente || contaCorrente.lancamentos.length == 0; else mostraLancamentos">
+              <tbody *ngIf="contaCorrente && !estaCarregando && !erro">
+                <tr *ngIf="contaCorrente.lancamentos.length == 0; else mostraLancamentos">
                   <td colSpan=3>Sem lançamentos</td>
                 </tr>
                 <ng-template #mostraLancamentos>
-                  <tr  *ngFor="let lancamento of contaCorrente.lancamentos">
+                  <tr *ngFor="let lancamento of contaCorrente.lancamentos">
                     <td>{{lancamento.data | date}}</td>
                     <td>{{lancamento.descricao}}</td>
                     <td class="text-right">{{lancamento.valor | currency}}</td>
@@ -76,7 +53,7 @@
                   <th>Valor</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody *ngIf="contaCredito && !estaCarregando && !erro">
                 <tr *ngIf="contaCredito.lancamentos.length == 0">
                   <td colSpan=3>Sem lançamentos</td>
                 </tr>
