@@ -15,7 +15,6 @@ import { LancamentoComponent } from "src/app/pages/area-logada/lancamento/lancam
 import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar/depositar.component";
 import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.component";
 import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
-import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
 
 @NgModule({
   declarations: [

@@ -11,17 +11,18 @@ import { AuthService } from "src/app/service/auth/auth.service";
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  private listTitles: any[];
+  private listTitles: any[] | undefined;
   location: Location;
-  mobile_menu_visible: any = 0;
+  mobile_menu_visible: number = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  userName: string;
+  userName: string | undefined;
 
   public isCollapsed = true;
+  closeResult: string | undefined;
 
-  closeResult: string;
+  // closeResult: string;
 
   constructor(
     location: Location,
@@ -64,7 +65,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
 
     const user = this.authService.getUsuario();
-    this.userName = user.login.split(' ')[0];
+    this.userName = user?.login.split(' ')[0];
   }
 
   collapse() {
@@ -124,6 +125,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     const html = document.getElementsByTagName("html")[0];
 
+    var $layer = document.createElement("div");
+    $layer.setAttribute("class", "close-layer");
     if (this.mobile_menu_visible == 1) {
       // $('html').removeClass('nav-open');
       html.classList.remove("nav-open");
@@ -140,8 +143,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         $toggle.classList.add("toggled");
       }, 430);
 
-      var $layer = document.createElement("div");
-      $layer.setAttribute("class", "close-layer");
 
       if (html.querySelectorAll(".main-panel")) {
         document.getElementsByClassName("main-panel")[0].appendChild($layer);
@@ -155,7 +156,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         $layer.classList.add("visible");
       }, 100);
 
-      $layer.onclick = function() {
+      $layer.onclick = () => {
         //asign a function
         html.classList.remove("nav-open");
         this.mobile_menu_visible = 0;
@@ -164,7 +165,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
           $layer.remove();
           $toggle.classList.remove("toggled");
         }, 400);
-      }.bind(this);
+      };
+      NavbarComponent.bind(this);
 
       html.classList.add("nav-open");
       this.mobile_menu_visible = 1;
@@ -185,7 +187,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     return "Bank";
   }
 
-  open(content) {
+  open(content: any) {
     this.modalService.open(content, {windowClass: 'modal-search'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

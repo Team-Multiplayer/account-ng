@@ -16,10 +16,24 @@ export const AuthLayoutRoutes: Routes = [
     path: "",
     component: AuthLayoutComponent,
     children: [
-      { path: "home", component: HomeComponent },
-      { path: "login", component:  LoginComponent, canActivate: [NaoLogadoGuard]},
-      { path: "cadastrar", component:  RegisterComponent, canActivate: [NaoLogadoGuard]},
-      { path: "sobre", component:  AboutComponent }
+      {
+        path: "home",
+        component: HomeComponent
+      },
+      {
+        path: "login", component:
+        LoginComponent,
+        canActivate: [NaoLogadoGuard]
+      },
+      {
+        path: "cadastrar",
+        component:  RegisterComponent,
+        canActivate: [NaoLogadoGuard]
+      },
+      {
+        path: "sobre",
+        component:  AboutComponent
+      }
     ]
   },
 ];

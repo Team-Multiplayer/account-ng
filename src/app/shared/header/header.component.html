@@ -1,4 +1,5 @@
 <div class="header-container container-fluid">
+
   <div class="header d-flex align-items-center justify-content-between p-4">
     <a routerLink="/home">
       <h1 class="header--logo m-0" [ngClass]="{'dark-logo': bodyColorWhite}"><span>Acc</span>ount</h1>
@@ -9,5 +10,18 @@
       <a routerLink="/login" class="navbar--login nav--link">Login</a>
     </div>
     <a class="navbar--register mr-5 tw" routerLink="cadastrar">CADASTRAR</a>
+  </div>
+ <div id="menuToggle">
+    <input type="checkbox" />
+    <span></span>
+    <span></span>
+    <span></span>
+    <ul id="menu">
+      <a routerLink="/home" class="nav--link"><li>Home</li></a>
+      <a routerLink="/services" class="nav--link"><li>Services</li></a>
+      <a routerLink="/sobre" class="nav--link"><li>Sobre</li></a>
+      <a routerLink="/login" class="nav--link"><li>Login</li></a>
+      <a routerLink="/register" class="nav--link"><li>Cadastrar</li></a>
+    </ul>
   </div>
 </div>

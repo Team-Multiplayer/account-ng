@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as Aos from 'aos';
 import { slideInAnimation } from 'src/app/shared/animations/animation';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-
+    Aos.refresh();
 
 
   }
