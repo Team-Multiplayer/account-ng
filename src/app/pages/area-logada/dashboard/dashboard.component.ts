@@ -48,7 +48,7 @@ export class DashboardComponent implements OnInit {
   }
 
   onSuccess(response: any) {
-
+    console.log(response);
     this.contaCorrente = response.contaCorrente;
     console.log(this.contaCorrente.lancamentos.length);
 
@@ -56,7 +56,5 @@ export class DashboardComponent implements OnInit {
 
   }
 ;
-
-
 }
 

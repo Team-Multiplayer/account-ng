@@ -1,7 +1,6 @@
 import { Routes } from "@angular/router";
 import { AdminLayoutComponent } from "src/app/layouts/admin-layout/admin-layout.component";
 import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar/depositar.component";
-import { LancamentoComponent } from "src/app/pages/area-logada/lancamento/lancamento.component";
 import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.component";
 import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
 import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
@@ -23,10 +22,6 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'dashboard',
         component: DashboardComponent
-      },
-      {
-        path: 'lancamento',
-        component: LancamentoComponent
       },
       {
         path: 'depositar',

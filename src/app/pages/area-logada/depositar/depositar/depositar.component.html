@@ -8,7 +8,7 @@
       <div class=" card">
         <div class=" card-header"><h5 class=" title">Depositar</h5></div>
         <div class=" card-body">
-          <form [formGroup]="lancamentoForm" (ngSubmit)="sendLancamento()">
+          <form [formGroup]="lancamentoForm" (ngSubmit)="fazerDeposito()">
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
@@ -16,9 +16,9 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="text"
+                    type="number"
                     value=""
-                    formControlName="numeroContaUsuario"
+                    formControlName="idContaUsuario"
                   />
                 </div>
               </div>
@@ -28,7 +28,7 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="text"
+                    type="number"
                     value=""
                     formControlName="valor"
                   />
@@ -54,7 +54,7 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="text"
+                    type="number"
                     value=""
                     formControlName="categoria"
                   />
@@ -66,25 +66,24 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="email"
+                    type="text"
                     formControlName="descricao"
                   />
                 </div>
               </div>
             </div>
+            <button
+            [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
+            class="nav--link"
+            [disabled]="!lancamentoForm.valid"
+            type="submit"
+            >
+              Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
+          </button>
           </form>
 
         </div>
         <div class=" card-footer">
-          <button
-          [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
-          class="nav--link"
-          [disabled]="!lancamentoForm.valid"
-          (click)="toggle()"
-          type="submit"
-          >
-            Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
-        </button>
         </div>
       </div>
     </div>
@@ -94,10 +93,10 @@
   <div class="success--message" [ngClass]="{'show-message': isOpen}">
     <h1>Transação realizada com sucesso!</h1>
     <div [ngClass]="{'expand-box': isOpen}">
-      <h5>Valor: {{lancamentoForm.value.valor}}</h5>
-      <h5>Descrição: {{lancamentoForm.value.descricao}}</h5>
-      <h5>Tipo: {{lancamentoForm.value.tipo}}</h5>
-      <h5>Categoria: {{lancamentoForm.value.categoria}}</h5>
+      <h5><span>Valor</span>: {{lancamentoForm.value.valor | currency}}</h5>
+      <h5><span>Descrição</span>: {{lancamentoForm.value.descricao}}</h5>
+      <h5><span>Tipo</span>: {{lancamentoForm.value.tipo}}</h5>
+      <h5><span>Categoria</span>: {{lancamentoForm.value.categoria}}</h5>
 
       <button class="repeat--payment" (click)="[toggle(), resetForm()]">
         Novo Depósito

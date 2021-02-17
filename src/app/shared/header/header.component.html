@@ -20,7 +20,7 @@
       <a routerLink="/home" class="nav--link"><li>Home</li></a>
       <a routerLink="/services" class="nav--link"><li>Services</li></a>
       <a routerLink="/sobre" class="nav--link"><li>Sobre</li></a>
-      <a routerLink="/login" class="nav--link"><li>Login</li></a>
+      <a routerLink="/login" class="nav--link" *ngIf="currentRoute !== '/login'"><li>Login</li></a>
       <a routerLink="/cadastrar" class="nav--link"><li>Cadastrar</li></a>
     </ul>
   </div>

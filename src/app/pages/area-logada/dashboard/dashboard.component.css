@@ -160,3 +160,17 @@ td {
 .gold-bg-front {
   background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
 }
+
+
+@media screen and (max-width: 800px) {
+  .your-cards {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em 0;
+  }
+
+  .middle-card {
+    margin: 1em 0;
+  }
+}

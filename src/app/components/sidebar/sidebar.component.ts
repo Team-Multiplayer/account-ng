@@ -14,12 +14,6 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "lancamento",
-    title: "Lançamento",
-    icon: "icon-credit-card",
-    class:""
-  },
-  {
     path: "depositar",
     title: "Depositar",
     icon: "icon-money-coins",

@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LancamentoService } from 'src/app/service/lancamento/lancamento.service';
 
 @Component({
   selector: 'app-depositar',
@@ -29,17 +30,20 @@ export class DepositarComponent implements OnInit {
 
   isOpen: boolean = false;
 
+  userId = JSON.parse(localStorage.getItem('usuario'));
   lancamentoForm = this.formBuilder.group({
-    numeroContaUsuario: ['', Validators.required],
+    idContaUsuario:     ['', Validators.required],
     descricao:          ['', Validators.required],
     categoria:          ['', Validators.required],
     valor:              ['', Validators.required],
-    tipo:               ['', Validators.required]
+    tipo:               ['', Validators.required],
   })
 
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private lancamentoService: LancamentoService
+
   ) { }
 
   ngOnInit(): void {
@@ -48,8 +52,22 @@ export class DepositarComponent implements OnInit {
 
   }
 
-  sendLancamento() {
-    console.log('ok');
+  fazerDeposito() {
+
+    this.lancamentoService.pagarService(this.lancamentoForm.value)
+    .subscribe(
+      response => this.onSuccess(response),
+      error => this.onError(error)
+      );
+    }
+
+  onSuccess(response) {
+    this.toggle();
+    console.log(response);
+  }
+
+  onError(error) {
+    console.log(error);
   }
 
   toggle() {
