@@ -24,7 +24,7 @@ export class LogadoGuard implements CanActivate {
         return true;
       }
       // se estiver logado manda pra home e não deixa passar
-      this.router.navigate(['home'])
+      this.router.navigate(['login'])
       return false;
     }
 

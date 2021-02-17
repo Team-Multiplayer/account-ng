@@ -157,7 +157,7 @@ h1,h2,h3,h4,h5,h6, p {
   background: #e0e9f4;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   .about--row {
     flex-direction: column;
   }
@@ -214,7 +214,7 @@ h1,h2,h3,h4,h5,h6, p {
   }
 }
 
-@media screen and (max-width: 534px) {
+@media screen and (max-width: 800px) {
   .commitment--text {
     max-width: 100%;
     padding: 1em;
@@ -385,7 +385,7 @@ h1,h2,h3,h4,h5,h6, p {
   transform: scaleX(0);
 }
 
-@media screen and (max-width: 534px) {
+@media screen and (max-width: 800px) {
   .gallery {
     padding-bottom: 1em;
   }

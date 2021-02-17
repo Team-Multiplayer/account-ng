@@ -87,7 +87,7 @@ a, button {
   }
 }
 
-@media screen and (max-width: 534px) {
+@media screen and (max-width: 800px) {
 
   .header--navbar,
   .navbar--register {
@@ -249,4 +249,10 @@ a, button {
 #menuToggle input:checked ~ ul
 {
   transform: none;
+}
+
+@media screen and (min-width: 800px) {
+  #menuToggle {
+    display: none;
+  }
 }

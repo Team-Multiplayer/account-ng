@@ -16,6 +16,28 @@
 }
 
 
+@media screen and (max-width: 800px) {
+  .register {
+    margin-top: 100px;
+  }
+
+  form {
+    width: 100% !important;
+  }
+
+  .register--wrapper {
+    flex-direction: column;
+  }
+
+  .image--container {
+    margin-top: 80px;
+
+    &>h1{
+      font-size: 20px;
+    }
+  }
+}
+
 // BUTTON
 .nav--link {
   background: transparent;
