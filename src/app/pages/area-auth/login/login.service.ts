@@ -26,8 +26,8 @@ export class LoginService {
       .pipe(
         take(1),
         tap( response => {
-          console.log(response)
-          this.authService.setUsuario(response);
+          // console.log(response)
+          this.authService.setUsuario(response.usuario);
           this.authService.setToken(response.token);
         })
       );

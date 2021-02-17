@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import Chart from 'chart.js';
+import { DashboardService } from "./dashboard.service";
 
 @Component({
   selector: "app-dashboard",
@@ -16,11 +17,46 @@ export class DashboardComponent implements OnInit {
   public clicked1: boolean = false;
   public clicked2: boolean = false;
 
-  constructor() {}
+  contaCorrente = {
+    conta: {},
+    lancamentos: []
+  };
+
+  contaCredito = {
+    conta: {},
+    lancamentos: []
+  };
+
+  constructor(
+    private dashboardService: DashboardService,
+  ) {}
 
   ngOnInit() {
 
-    };
+    this.dashboardService.buscarDadosDashboard()
+    .subscribe(
+      response => this.onSuccess(response),
+      error => this.onError(error)
+    );
+
+
+  }
+
+  onError(error: any) {
+    console.log('error: ' + error );
+
+  }
+
+  onSuccess(response: any) {
+
+    this.contaCorrente = response.contaCorrente;
+    console.log(this.contaCorrente.lancamentos.length);
+
+    this.contaCredito = response.contaCredito;
+
+  }
+;
 
 
 }
+

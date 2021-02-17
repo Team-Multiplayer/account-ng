@@ -1,7 +1,7 @@
 <div class="login container d-flex justify-content-around">
   <div class="login-wrapper">
     <h1 class="">Logar na Account</h1>
-    <form class="p-4" [formGroup]="loginForm">
+    <form class="p-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
       <div class=" form-group" data-aos="fade-left" data-aos-delay="200">
         <label for="login"> Login </label>
         <input
@@ -40,7 +40,6 @@
         class="nav--link"
         type="submit"
         [disabled]="estaCarregando"
-        (click)="onSubmit()"
       >Logar<span>!</span></button>
     </form>
 

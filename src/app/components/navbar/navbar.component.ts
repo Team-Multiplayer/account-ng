@@ -65,7 +65,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     });
 
     const user = this.authService.getUsuario();
-    this.userName = user?.login.split(' ')[0];
+    this.userName = user.nome.split(' ')[0];
   }
 
   collapse() {
