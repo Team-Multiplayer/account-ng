@@ -14,12 +14,6 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "lancamento",
-    title: "Lançamento",
-    icon: "icon-credit-card",
-    class:""
-  },
-  {
     path: "depositar",
     title: "Depositar",
     icon: "icon-money-coins",
@@ -42,6 +36,12 @@ export const ROUTES: RouteInfo[] = [
     title: "Perfil",
     icon: "icon-single-02",
     class: ""
+  },
+  {
+    path: "extrato",
+    title: "Extrato",
+    icon: "icon-credit-card",
+    class:""
   },
 ];
 
