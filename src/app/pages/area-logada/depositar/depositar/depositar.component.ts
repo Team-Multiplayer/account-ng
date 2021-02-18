@@ -36,7 +36,7 @@ export class DepositarComponent implements OnInit {
     idContaUsuario:     ['', Validators.required],
     descricao:          ['', Validators.required],
     valor:              ['', Validators.required],
-    tipo:               ['', Validators.required],
+    tipo:               ['CREDITO', Validators.required],
     categoria:          [1],
   })
 
