@@ -14,6 +14,7 @@ import { AdminLayoutComponent } from "src/app/layouts/admin-layout/admin-layout.
 import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar/depositar.component";
 import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.component";
 import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
+import { ExtratoComponent } from "src/app/pages/area-logada/extrato/extrato.component";
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TransferirComponent } from "src/app/pages/area-logada/transferir/transf
     DepositarComponent,
     PagarComponent,
     TransferirComponent,
+    ExtratoComponent,
   ],
   imports: [
     CommonModule,
