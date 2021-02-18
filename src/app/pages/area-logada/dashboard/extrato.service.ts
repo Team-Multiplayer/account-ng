@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { environment } from 'src/environments/environment';
-import { ExtratoRequest } from './extrato.interfaces';
+import { ExtratoRequest } from './dashboard.interfaces';
 
 
 @Injectable({
@@ -31,6 +32,7 @@ export class ExtratoService {
       fim: fim
     };
 
-    return this.http.post<any>(this.API_URL + '/dashboard', extratoRequest, { headers: headers });
+    return this.http.post<any>(this.API_URL + '/dashboard', extratoRequest, { headers: headers })
+      .pipe(take(1));
   }
 }

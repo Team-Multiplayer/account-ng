@@ -12,39 +12,24 @@
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Nº da sua conta </label>
-                  <input
-                    class=" form-control"
-                    placeholder=""
-                    type="number"
-                    value=""
-                    formControlName="numeroContaUsuario"
-                  />
-                </div>
-              </div>
-              <div class=" col-md-3 px-md-1">
-                <div class=" form-group">
                   <label> Valor (R$) </label>
                   <input
                     class=" form-control"
                     placeholder=""
                     type="number"
                     value=""
+                    maxlength="7"
                     formControlName="valor"
                   />
                 </div>
               </div>
-              <div class=" col-md-4 pl-md-1">
+              <div class=" col-md-7">
                 <div class=" form-group">
-                  <label> Tipo de transação </label>
-                  <input
-                    class=" form-control"
-                    placeholder=""
-                    type="text"
-                    value=""
-                    readonly
-                    formControlName="tipo"
-                  />
+                  <label> Tipo da conta </label>
+                  <select class="form-control" formControlName="idContaUsuario">
+                    <option value="{{contaCorrente.id}}" selected>Conta Corrente</option>
+                    <option value="{{contaCredito.id}}">Conta Crédito</option>
+                  </select>
                 </div>
               </div>
             </div>
@@ -61,9 +46,9 @@
                   />
                 </div>
               </div> -->
-              <div class=" col-md-9 pl-md-1">
+              <div class=" col-md-12">
                 <div class=" form-group">
-                  <label for="exampleInputEmail1"> Descrição da transação </label>
+                  <label> Descrição da transação </label>
                   <input
                     class=" form-control"
                     placeholder=""
@@ -80,7 +65,7 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="number"
+                    type="text"
                     value=""
                     formControlName="numeroContaDestino"
                   />
@@ -89,28 +74,25 @@
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label> Tipo da conta destino </label>
-                  <input
-                    class=" form-control"
-                    placeholder=""
-                    type="text"
-                    value=""
-                    formControlName="numeroContaDestino"
-                  />
+                  <select class="form-control" formControlName="tipoContaDestino">
+                    <option value="CORRENTE" selected>Conta Corrente</option>
+                    <option value="CREDITO">Conta Crédito</option>
+                  </select>
                 </div>
               </div>
             </div>
+            <button
+            [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
+            class="nav--link"
+            [disabled]="lancamentoForm.invalid"
+            type="submit"
+            >
+              Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
+            </button>
           </form>
 
         </div>
         <div class=" card-footer">
-          <button
-          [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
-          class="nav--link"
-          [disabled]="!lancamentoForm.valid"
-          type="submit"
-          >
-            Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
-          </button>
         </div>
       </div>
     </div>
@@ -120,7 +102,7 @@
   <div class="success--message" [ngClass]="{'show-message': isOpen}">
     <h1>Transação realizada com sucesso!</h1>
     <div [ngClass]="{'expand-box': isOpen}">
-      <h5>Dados da transferência: {{lancamentoForm.value.numeroContaUsuario}}</h5>
+      <h5>Dados da transferência: {{lancamentoForm.value.idContaUsuario}}</h5>
       <h5>Valor: {{lancamentoForm.value.valor | currency}}</h5>
       <h5>Descrição: {{lancamentoForm.value.descricao}}</h5>
       <h5>Destino: {{lancamentoForm.value.numeroContaDestino}}</h5>
