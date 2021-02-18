@@ -26,7 +26,7 @@ export class DashboardService {
     const headers: HttpHeaders = new HttpHeaders().set('Authorization', token);
 
     return this.http.get<any>(this.API_URL + '/dashboard/' + usuario.login, { headers: headers })
-    .pipe(take(1));
+      .pipe(take(1));
 
   }
 

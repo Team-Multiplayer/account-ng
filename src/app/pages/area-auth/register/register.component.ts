@@ -66,6 +66,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSuccessRegister(response: any) {
-
+    alert('Cadastro realizado, agora faça o login.')
+    this.router.navigate(['login']);
   }
 }

@@ -9,10 +9,10 @@ import { AdminLayoutRoutes } from "./admin-layout.routing";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ComponentsModule } from "src/app/components/components.module";
 import { AdminLayoutComponent } from "src/app/layouts/admin-layout/admin-layout.component";
-import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar/depositar.component";
-import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.component";
-import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
-import { ExtratoComponent } from "src/app/pages/area-logada/extrato/extrato.component";
+import { DepositarComponent } from "src/app/pages/area-logada/depositar/depositar.component";
+import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar.component";
+import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir.component";
+import { DashboardComponent } from "src/app/pages/area-logada/dashboard/dashboard.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +20,7 @@ import { ExtratoComponent } from "src/app/pages/area-logada/extrato/extrato.comp
     DepositarComponent,
     PagarComponent,
     TransferirComponent,
-    ExtratoComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

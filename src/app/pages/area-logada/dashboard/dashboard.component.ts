@@ -2,15 +2,15 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDate, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { finalize } from 'rxjs/operators';
-import { DashboardService } from 'src/app/pages/area-logada/extrato/dashboard.service';
+import { DashboardService } from './dashboard.service';
 import { ExtratoService } from './extrato.service';
 
 @Component({
   selector: 'app-extrato',
-  templateUrl: './extrato.component.html',
-  styleUrls: ['./extrato.component.scss']
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.scss']
 })
-export class ExtratoComponent implements OnInit {
+export class DashboardComponent implements OnInit {
 
   saldo: number;
 
@@ -65,8 +65,7 @@ export class ExtratoComponent implements OnInit {
   }
 
   onDashSuccess(response: any) {
-    console.log(response);
-    this.saldo = response.contaCorrente.conta.saldo;
+    this.saldo = response.contaCorrente.conta.saldo + response.contaCredito.conta.saldo;
   }
 
   buscarExtrato() {
@@ -92,6 +91,8 @@ export class ExtratoComponent implements OnInit {
   }
 
   onSuccess(response: any) {
+    localStorage.setItem('contaCorrente', JSON.stringify(response.contaCorrente.conta));
+    localStorage.setItem('contaCredito', JSON.stringify(response.contaCredito.conta));
     this.contaCorrente = response.contaCorrente;
     this.contaCredito = response.contaCredito;
   }

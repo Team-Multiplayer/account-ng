@@ -31,13 +31,15 @@ export class TransferirComponent implements OnInit {
   lancamentoForm = this.formBuilder.group({
     idContaUsuario:     ['', Validators.required],
     numeroContaDestino: ['', Validators.required],
-    tipoContaDestino:   ['', Validators.required],
+    tipoContaDestino:   ['CORRENTE', Validators.required],
     descricao:          ['', Validators.required],
     valor:              ['', Validators.required],
-    tipo:               ['TRANSFERENCIA', Validators.required],
+    tipo:               ['TRANSFERENCIA'],
     categoria:          [1]
   })
 
+  contaCorrente;
+  contaCredito;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -45,11 +47,16 @@ export class TransferirComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    this.contaCorrente = JSON.parse(localStorage.getItem('contaCorrente'));
+    this.contaCredito = JSON.parse(localStorage.getItem('contaCredito'));
   }
 
   sendLancamento() {
-    this.lancamentoService.pagarService(this.lancamentoForm.value)
+    this.fazerTransferencia();
+  }
+
+  fazerTransferencia() {
+    this.lancamentoService.novoLancamento(this.lancamentoForm.value)
     .subscribe(
       response => this.onSuccess(response),
       error => this.onError(error)
@@ -58,7 +65,6 @@ export class TransferirComponent implements OnInit {
 
   onSuccess(response) {
     this.toggle();
-    console.log(response);
   }
 
   onError(error) {
