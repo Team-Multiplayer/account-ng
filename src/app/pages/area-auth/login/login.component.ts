@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { LoginService } from 'src/app/pages/area-auth/login/login.service';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { slideInAnimation } from 'src/app/shared/animations/animation';
-import { LoginResponse } from './login.interfaces';
-import { Usuario } from "../../../shared/interfaces/usuario.interface";
 
 @Component({
   selector: 'app-login',
