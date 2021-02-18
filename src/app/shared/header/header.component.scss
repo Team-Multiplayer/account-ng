@@ -61,29 +61,32 @@ a, button {
   color: #000;
 }
 
-
 .nav--link {
   color: #fff !important;
 }
 
 .navbar--register {
+  background: linear-gradient(to left, #1a795c, #46e2b3);
+  color: #1e1e2f;
   position: relative;
-  background: transparent !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 150px;
   height: 40px;
-  border: 8px solid;
-  border-image-slice: 1;
-  border-width: 3px;
-  border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-  box-shadow: 0 0 5px 1px #d53a9d;
+  // border: 8px solid;
+  // border-image-slice: 1;
+  // border-width: 3px;
+  // border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
+  box-shadow: 0 0 5px 1px #46e2b3;
   transition: 0.2s ease-in-out;
 
   &:hover {
-    box-shadow: 0 0 15px 1px #d53a9d;
+    box-shadow: 0 0 15px 1px #743ad5;
   }
 }
 

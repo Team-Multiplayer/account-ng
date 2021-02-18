@@ -34,22 +34,6 @@ export const AdminLayoutRoutes: Routes = [
         path: 'transferir',
         component: TransferirComponent
       },
-<<<<<<< HEAD
-      // {
-      //   path: 'perfil',
-      //   component: UserComponent
-      // },
-      {
-        path: 'extrato',
-        component: ExtratoComponent
-      },
-
-=======
-      {
-        path: 'perfil',
-        component: UserComponent
-      },
->>>>>>> 42123c9cc3acf29b372cde9e09bc70687e88c479
     ]
   }
 ];

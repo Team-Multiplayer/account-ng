@@ -5,6 +5,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/pages/area-auth/register/register.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/pages/area-auth/login/login.service';
+import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -59,14 +60,17 @@ export class RegisterComponent implements OnInit {
     }
 
   registerUser() {
-    this.registerService.cadastrar(this.registerForm.value).subscribe(
+    this.registerService.cadastrar(this.registerForm.value)
+    .subscribe(
       response => this.onSuccessRegister(response),
       error => console.log(error)
     );
   }
 
   onSuccessRegister(response: any) {
-    alert('Cadastro realizado, agora faça o login.')
-    this.router.navigate(['login']);
+    console.log(response);
+
+    // alert('Cadastro realizado, agora faça o login.')
+    this.router.navigate(['dashboard']);
   }
 }
