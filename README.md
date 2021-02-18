@@ -10,7 +10,7 @@ Lucas Villarim - Implementou funcionalidades gráficas, consumo da API, idealiza
 
 ## Propósito da Aplicação
 
-Com o poder do Angular a implementação de funcionalidades do Javascript passa a ser 
+Com o poder do Angular, a implementação de funcionalidades do Javascript passa a ser 
 menos oneroso, tornando o processo prático e rápido. 
 Nossa aplicação tem o intuito de simular uma aplicação de bankline onde o usuário, 
 através de uma interface gráfica poderá utilizar os diferentes recursos de uma API 
