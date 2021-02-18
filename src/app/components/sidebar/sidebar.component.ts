@@ -13,12 +13,6 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-credit-card",
     class:""
   },
-  // {
-  //   path: "dashboard",
-  //   title: "Dashboard",
-  //   icon: "icon-chart-pie-36",
-  //   class: ""
-  // },
   {
     path: "depositar",
     title: "Depositar",
@@ -37,12 +31,6 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-send",
     class:""
   },
-  // {
-  //   path: "perfil",
-  //   title: "Perfil",
-  //   icon: "icon-single-02",
-  //   class: ""
-  // },
 ];
 
 @Component({

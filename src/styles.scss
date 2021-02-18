@@ -3,6 +3,12 @@ h1,h2,h3,h4,h5,h6 {
    font-family: 'Spartan', sans-serif !important;
 }
 
+select {
+  &:hover {
+    background-color: #000;
+  }
+}
+
 button, a {
   cursor: pointer !important;
   outline: none;

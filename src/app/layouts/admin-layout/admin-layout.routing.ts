@@ -6,7 +6,6 @@ import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar.component"
 import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir.component";
 import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
 
-import { UserComponent } from "../../pages/area-logada/user/user.component";
 
 export const AdminLayoutRoutes: Routes = [
   {
@@ -34,10 +33,6 @@ export const AdminLayoutRoutes: Routes = [
       {
         path: 'transferir',
         component: TransferirComponent
-      },
-      {
-        path: 'perfil',
-        component: UserComponent
       },
     ]
   }

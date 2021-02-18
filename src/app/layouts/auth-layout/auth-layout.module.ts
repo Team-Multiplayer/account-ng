@@ -13,8 +13,6 @@ import { SharedModule } from '../../shared/shared.module';
 import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from 'src/app/shared/header/header.component';
-import { NaoLogadoGuard } from 'src/app/shared/guards/nao-logado/nao-logado.guard';
 
 @NgModule({
   declarations: [

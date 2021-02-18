@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   @ViewChild('senhaInput') senhaInput: ElementRef | undefined;
 
   loginForm: FormGroup = this.formBuilder.group({
-    login: ['', Validators.required],
+    login: ['', [Validators.required, Validators.maxLength(20)]],
     senha: ['', Validators.required],
   });
 
@@ -69,7 +69,6 @@ export class LoginComponent implements OnInit {
     if (!this.loginForm.controls[nomeControle]) {
       return false;
     }
-
     return this.loginForm.controls[nomeControle].invalid && this.loginForm.controls[nomeControle].touched;
   }
 

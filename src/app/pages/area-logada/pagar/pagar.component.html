@@ -18,18 +18,28 @@
                     placeholder=""
                     type="number"
                     value=""
+                    min=0
                     maxlength="7"
                     formControlName="valor"
+                    [class.is-invalid]="exibeErro('valor')"
                   />
+                  <div *ngIf="exibeErro('valor')" class="invalid-feedback">
+                    Valor inválido.
+                  </div>
                 </div>
               </div>
               <div class=" col-md-7">
                 <div class=" form-group">
                   <label> Tipo da conta </label>
-                  <select class="form-control" formControlName="idContaUsuario">
+                  <select class="form-control"
+                    formControlName="idContaUsuario"
+                    [class.is-invalid]="exibeErro('idContaUsuario')">
                     <option value="{{contaCorrente.id}}" selected>Conta Corrente</option>
                     <option value="{{contaCredito.id}}">Conta Crédito</option>
                   </select>
+                  <div *ngIf="exibeErro('idContaUsuario')" class="invalid-feedback">
+                    Tipo da conta inválida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -56,7 +66,11 @@
                     type="text"
                     maxlength="50"
                     formControlName="descricao"
+                    [class.is-invalid]="exibeErro('descricao')"
                   />
+                  <div *ngIf="exibeErro('descricao')" class="invalid-feedback">
+                    Descrição inválida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -70,6 +84,11 @@
             </button>
           </form>
 
+        </div>
+        <div class=" card-footer">
+          <div *ngIf="erroLancamento" class="alert alert-warning" role="alert">
+            Saldo insuficiente.
+          </div>
         </div>
       </div>
     </div>

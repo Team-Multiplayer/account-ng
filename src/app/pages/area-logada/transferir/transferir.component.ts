@@ -1,6 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { LancamentoService } from 'src/app/service/lancamento/lancamento.service';
 
 @Component({
@@ -28,18 +28,19 @@ import { LancamentoService } from 'src/app/service/lancamento/lancamento.service
 export class TransferirComponent implements OnInit {
   isOpen: boolean = false;
 
-  lancamentoForm = this.formBuilder.group({
+  lancamentoForm: FormGroup = this.formBuilder.group({
     idContaUsuario:     ['', Validators.required],
     numeroContaDestino: ['', Validators.required],
     tipoContaDestino:   ['CORRENTE', Validators.required],
     descricao:          ['', Validators.required],
-    valor:              ['', Validators.required],
+    valor:              ['', [Validators.required, Validators.min(0)]],
     tipo:               ['TRANSFERENCIA'],
     categoria:          [1]
   })
 
   contaCorrente;
   contaCredito;
+  erroLancamento = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -52,6 +53,13 @@ export class TransferirComponent implements OnInit {
   }
 
   sendLancamento() {
+
+    if (!this.lancamentoForm.valid) {
+      this.validarCamposDoFormulario(this.lancamentoForm);
+      this.focarNoPrimeiroInputInvalido(this.lancamentoForm);
+      return;
+    }
+
     this.fazerTransferencia();
   }
 
@@ -68,6 +76,7 @@ export class TransferirComponent implements OnInit {
   }
 
   onError(error) {
+    this.erroLancamento = true;
     console.log(error);
   }
 
@@ -77,6 +86,30 @@ export class TransferirComponent implements OnInit {
 
   resetForm() {
     this.lancamentoForm.reset();
+  }
+
+  private validarCamposDoFormulario(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.get(field) as FormControl;
+      control.markAsTouched();
+    });
+  }
+
+  private focarNoPrimeiroInputInvalido(form: FormGroup) {
+    for (let control of Object.keys(form.controls)) {
+      if (form.controls[control].invalid) {
+        const input = `${control}Input` as keyof TransferirComponent;
+        (this[input] as ElementRef).nativeElement.focus();
+        break;
+      }
+    }
+  }
+
+  exibeErro(nomeControle: string) {
+    if (!this.lancamentoForm.controls[nomeControle]) {
+      return false;
+    }
+    return this.lancamentoForm.controls[nomeControle].invalid && this.lancamentoForm.controls[nomeControle].touched;
   }
 
 }
