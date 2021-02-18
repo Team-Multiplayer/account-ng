@@ -22,7 +22,7 @@ export const AdminLayoutRoutes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardComponent
+        component: ExtratoComponent
       },
       {
         path: 'depositar',

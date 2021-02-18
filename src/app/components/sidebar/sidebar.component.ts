@@ -10,9 +10,15 @@ export const ROUTES: RouteInfo[] = [
   {
     path: "dashboard",
     title: "Dashboard",
-    icon: "icon-chart-pie-36",
-    class: ""
+    icon: "icon-credit-card",
+    class:""
   },
+  // {
+  //   path: "dashboard",
+  //   title: "Dashboard",
+  //   icon: "icon-chart-pie-36",
+  //   class: ""
+  // },
   {
     path: "depositar",
     title: "Depositar",
@@ -31,18 +37,12 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-send",
     class:""
   },
-  {
-    path: "perfil",
-    title: "Perfil",
-    icon: "icon-single-02",
-    class: ""
-  },
-  {
-    path: "extrato",
-    title: "Extrato",
-    icon: "icon-credit-card",
-    class:""
-  },
+  // {
+  //   path: "perfil",
+  //   title: "Perfil",
+  //   icon: "icon-single-02",
+  //   class: ""
+  // },
 ];
 
 @Component({
