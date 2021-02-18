@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { LancamentoService } from 'src/app/service/lancamento/lancamento.service';
 
 @Component({
   selector: 'app-transferir',
@@ -28,17 +29,19 @@ export class TransferirComponent implements OnInit {
   isOpen: boolean = false;
 
   lancamentoForm = this.formBuilder.group({
-    numeroContaUsuario: ['', Validators.required],
+    idContaUsuario:     ['', Validators.required],
     numeroContaDestino: ['', Validators.required],
+    tipoContaDestino:   ['', Validators.required],
     descricao:          ['', Validators.required],
-    categoria:          ['', Validators.required],
     valor:              ['', Validators.required],
-    tipo:               ['', Validators.required]
+    tipo:               ['TRANSFERENCIA', Validators.required],
+    categoria:          [1]
   })
 
 
   constructor(
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private lancamentoService: LancamentoService
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +49,20 @@ export class TransferirComponent implements OnInit {
   }
 
   sendLancamento() {
-    console.log('ok');
+    this.lancamentoService.pagarService(this.lancamentoForm.value)
+    .subscribe(
+      response => this.onSuccess(response),
+      error => this.onError(error)
+      );
+  }
+
+  onSuccess(response) {
+    this.toggle();
+    console.log(response);
+  }
+
+  onError(error) {
+    console.log(error);
   }
 
   toggle() {
