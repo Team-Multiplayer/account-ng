@@ -98,7 +98,7 @@ export class DepositarComponent implements OnInit {
   private focarNoPrimeiroInputInvalido(form: FormGroup) {
     for (let control of Object.keys(form.controls)) {
       if (form.controls[control].invalid) {
-        const input = `${control}Input` as keyof LoginComponent;
+        const input = `${control}Input` as keyof DepositarComponent;
         (this[input] as ElementRef).nativeElement.focus();
         break;
       }
