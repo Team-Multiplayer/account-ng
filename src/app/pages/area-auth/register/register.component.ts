@@ -1,7 +1,7 @@
 import Typewriter from 'typewriter-effect/dist/core';
 
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { Component, ElementRef, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/pages/area-auth/register/register.service';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/pages/area-auth/login/login.service';
@@ -14,7 +14,7 @@ import { mergeMap } from 'rxjs/operators';
 })
 export class RegisterComponent implements OnInit {
 
-  registerForm = this.formBuilder.group({
+  registerForm: FormGroup = this.formBuilder.group({
     cpf:   ['', [Validators.required, Validators.maxLength(11)]],
     nome:  ['', Validators.required],
     login: ['', [Validators.required, Validators.maxLength(20)]],
@@ -62,6 +62,14 @@ export class RegisterComponent implements OnInit {
     }
 
   registerUser() {
+
+    this.erroNoCadastro = false;
+
+    if (!this.registerForm.valid) {
+      this.validarCamposDoFormulario(this.registerForm);
+      return;
+    }
+
     this.registerService.cadastrar(this.registerForm.value)
     .subscribe(
       response => this.onSuccessRegister(response),
@@ -72,4 +80,19 @@ export class RegisterComponent implements OnInit {
   onSuccessRegister(response: any) {
     this.router.navigate(['dashboard']);
   }
+
+  private validarCamposDoFormulario(form: FormGroup) {
+    Object.keys(form.controls).forEach(field => {
+      const control = form.get(field) as FormControl;
+      control.markAsTouched();
+    });
+  }
+
+  exibeErro(nomeControle: string) {
+    if (!this.registerForm.controls[nomeControle]) {
+      return false;
+    }
+    return this.registerForm.controls[nomeControle].invalid && this.registerForm.controls[nomeControle].touched;
+  }
+
 }
