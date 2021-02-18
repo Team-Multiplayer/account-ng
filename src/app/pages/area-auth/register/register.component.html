@@ -30,6 +30,7 @@
           placeholder="Seu login"
           type="text"
           id="login"
+          maxLength="20"
           formControlName="login"
         />
       </div>
@@ -44,6 +45,11 @@
         />
       </div>
       <button class="nav--link" type="submit" [disabled]="!registerForm.valid">Cadastrar<span>!</span></button>
+
+      <div *ngIf="erroNoCadastro" class="alert alert-warning mt-3" role="alert">
+        Usuário já cadastrado.
+      </div>
+
     </form>
 
     <div class="image--container">

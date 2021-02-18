@@ -15,11 +15,13 @@ import { mergeMap } from 'rxjs/operators';
 export class RegisterComponent implements OnInit {
 
   registerForm = this.formBuilder.group({
-    cpf:   ['', Validators.required],
+    cpf:   ['', [Validators.required, Validators.maxLength(11)]],
     nome:  ['', Validators.required],
-    login: ['', Validators.required],
+    login: ['', [Validators.required, Validators.maxLength(20)]],
     senha: ['', Validators.required]
   })
+
+  erroNoCadastro: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -63,14 +65,11 @@ export class RegisterComponent implements OnInit {
     this.registerService.cadastrar(this.registerForm.value)
     .subscribe(
       response => this.onSuccessRegister(response),
-      error => console.log(error)
+      error => this.erroNoCadastro = true
     );
   }
 
   onSuccessRegister(response: any) {
-    console.log(response);
-
-    // alert('Cadastro realizado, agora faça o login.')
     this.router.navigate(['dashboard']);
   }
 }
