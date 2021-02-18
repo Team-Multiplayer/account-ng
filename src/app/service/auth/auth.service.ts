@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { TokenBearer } from 'src/app/shared/interfaces/auth-interfaces/token-bearer.interface';
 import { Usuario } from 'src/app/shared/interfaces/dash-interfaces/usuario.interface';
 
 @Injectable({

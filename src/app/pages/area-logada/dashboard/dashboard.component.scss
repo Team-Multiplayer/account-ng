@@ -30,6 +30,12 @@
 }
 /*FIM DATEPICKER*/
 
+// DASHBOARD HEADER
+
+.dashboard-header {
+  flex-wrap: wrap;
+}
+
 // CALENDAR BTN
 
 .calendar-btn {
@@ -47,6 +53,21 @@
 .articles--section {
   max-width: 30%;
 
+}
+
+@media screen and (max-width: 800px) {
+  .dashboard-header {
+    // flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .articles--section {
+    margin: 2em 0;
+    max-width: 100%;
+  }
+
+  .article {
+  }
 }
 
 // CREDIT CARD
@@ -250,8 +271,11 @@
     align-items: center;
     padding: 1em 0;
   }
+}
 
-  .middle-card {
-    margin: 1em 0;
+@media screen and (max-width: 380px) {
+  .creditCard-body {
+    transform: scale(0.7);
+    margin-left: -2em;
   }
 }

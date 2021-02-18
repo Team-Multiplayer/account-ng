@@ -5,11 +5,11 @@
       <h1 class="header--logo m-0" [ngClass]="{'dark-logo': bodyColorWhite}"><span>Acc</span>ount</h1>
     </a>
     <div class="header--navbar">
-      <a class="navbar--services nav--link">Serviços</a>
+      <!-- <a class="navbar--services nav--link">Serviços</a> -->
       <a routerLink="/sobre" class="navbar--about nav--link mx-4">Sobre</a>
       <a routerLink="/login" class="navbar--login nav--link">Login</a>
     </div>
-    <a class="navbar--register mr-5" routerLink="cadastrar">CADASTRAR</a>
+    <a class="navbar--register mr-5" routerLink="cadastrar"><span class="mt-1">CADASTRAR</span></a>
   </div>
  <div id="menuToggle">
     <input type="checkbox" />
@@ -18,7 +18,7 @@
     <span></span>
     <ul id="menu">
       <a routerLink="/home" class="nav--link"><li>Home</li></a>
-      <a routerLink="/services" class="nav--link"><li>Services</li></a>
+      <!-- <a routerLink="/services" class="nav--link"><li>Services</li></a> -->
       <a routerLink="/sobre" class="nav--link"><li>Sobre</li></a>
       <a routerLink="/login" class="nav--link" *ngIf="currentRoute !== '/login'"><li>Login</li></a>
       <a routerLink="/cadastrar" class="nav--link"><li>Cadastrar</li></a>

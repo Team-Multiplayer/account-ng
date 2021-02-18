@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import * as Aos from 'aos';
 import { slideInAnimation } from 'src/app/shared/animations/animation';
+import * as Aos from 'aos';
 
 @Component({
   selector: 'app-home',

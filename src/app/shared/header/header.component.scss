@@ -78,12 +78,12 @@ a, button {
   justify-content: center;
   width: 150px;
   height: 40px;
+  box-shadow: 0 0 5px 1px #46e2b3;
+  transition: 0.2s ease-in-out;
   // border: 8px solid;
   // border-image-slice: 1;
   // border-width: 3px;
   // border-image-source: linear-gradient(to left, #743ad5, #d53a9d);
-  box-shadow: 0 0 5px 1px #46e2b3;
-  transition: 0.2s ease-in-out;
 
   &:hover {
     box-shadow: 0 0 15px 1px #743ad5;
@@ -99,17 +99,6 @@ a, button {
 }
 
 // HAMBURGER MENU
-
-// body
-// {
-//   margin: 0;
-//   padding: 0;
-
-//   background: #232323;
-//   color: #cdcdcd;
-//   font-family: "Avenir Next", "Avenir", sans-serif;
-// }
-
 #menuToggle
 {
   display: block;
@@ -136,7 +125,6 @@ a, button {
   color: tomato;
 }
 
-
 #menuToggle input
 {
   display: block;
@@ -148,14 +136,14 @@ a, button {
 
   cursor: pointer;
 
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
+  opacity: 0;
+  z-index: 2;
 
   -webkit-touch-callout: none;
 }
 
 /*
- * Just a quick hamburger
+ * hamburger
  */
 #menuToggle span
 {
@@ -199,7 +187,7 @@ a, button {
 }
 
 /*
- * But let's hide the middle one.
+ *  hide the middle one.
  */
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
@@ -208,7 +196,7 @@ a, button {
 }
 
 /*
- * Ohyeah and the last one should go the other direction
+ * the last one should go the other direction
  */
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
@@ -228,8 +216,7 @@ a, button {
   margin: -90px -40px 0 0;
   padding: 50px;
   padding-top: 125px;
-
-  background: #712AA9;
+  background: linear-gradient(90deg, rgba(11,0,36,1) 0%, rgba(69,9,121,1) 0%, rgba(133,36,224,1) 100%);
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
   /* to stop flickering of text in safari */
@@ -247,7 +234,7 @@ a, button {
 }
 
 /*
- * And let's slide it in from the left
+ * slide it in from the left
  */
 #menuToggle input:checked ~ ul
 {

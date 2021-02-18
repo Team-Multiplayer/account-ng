@@ -4,8 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { RegisterService } from 'src/app/pages/area-auth/register/register.service';
 import { Router } from '@angular/router';
-import { LoginService } from 'src/app/pages/area-auth/login/login.service';
-import { mergeMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-register',
@@ -24,7 +22,6 @@ export class RegisterComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private registerService: RegisterService,
-    private loginService: LoginService,
     private router: Router
     ) { }
 
@@ -62,15 +59,13 @@ export class RegisterComponent implements OnInit {
   registerUser() {
     this.registerService.cadastrar(this.registerForm.value)
     .subscribe(
-      response => this.onSuccessRegister(response),
+      () => this.onSuccessRegister(),
       error => console.log(error)
     );
   }
 
-  onSuccessRegister(response: any) {
-    console.log(response);
+  onSuccessRegister() {
 
-    // alert('Cadastro realizado, agora faça o login.')
     this.router.navigate(['dashboard']);
   }
 }

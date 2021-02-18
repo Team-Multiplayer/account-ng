@@ -5,9 +5,7 @@ import { take, tap } from 'rxjs/operators';
 import { AuthService } from 'src/app/service/auth/auth.service';
 import { LoginCredenciais } from 'src/app/shared/interfaces/auth-interfaces/login.interface';
 import { TokenBearer } from 'src/app/shared/interfaces/auth-interfaces/token-bearer.interface';
-import { Usuario } from 'src/app/shared/interfaces/dash-interfaces/usuario.interface';
 import { environment } from 'src/environments/environment';
-import { LoginResponse } from './login.interfaces';
 
 @Injectable({
   providedIn: 'root'
