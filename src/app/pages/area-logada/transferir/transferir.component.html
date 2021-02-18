@@ -19,17 +19,27 @@
                     type="number"
                     value=""
                     maxlength="7"
+                    min=0
                     formControlName="valor"
+                    [class.is-invalid]="exibeErro('valor')"
                   />
+                  <div *ngIf="exibeErro('valor')" class="invalid-feedback">
+                    Valor inválido.
+                  </div>
                 </div>
               </div>
               <div class=" col-md-7">
                 <div class=" form-group">
                   <label> Tipo da conta </label>
-                  <select class="form-control" formControlName="idContaUsuario">
+                  <select class="form-control"
+                    formControlName="idContaUsuario"
+                    [class.is-invalid]="exibeErro('idContaUsuario')">
                     <option value="{{contaCorrente.id}}" selected>Conta Corrente</option>
                     <option value="{{contaCredito.id}}">Conta Crédito</option>
                   </select>
+                  <div *ngIf="exibeErro('idContaUsuario')" class="invalid-feedback">
+                    Tipo da conta inválida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -43,7 +53,11 @@
                     placeholder=""
                     type="text"
                     formControlName="descricao"
+                    [class.is-invalid]="exibeErro('descricao')"
                   />
+                  <div *ngIf="exibeErro('descricao')" class="invalid-feedback">
+                    Descrição inválida.
+                  </div>
                 </div>
               </div>
             </div>
@@ -57,16 +71,25 @@
                     type="text"
                     value=""
                     formControlName="numeroContaDestino"
+                    [class.is-invalid]="exibeErro('numeroContaDestino')"
                   />
+                  <div *ngIf="exibeErro('numeroContaDestino')" class="invalid-feedback">
+                    Nº da conta destino inválido.
+                  </div>
                 </div>
               </div>
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label> Tipo da conta destino </label>
-                  <select class="form-control" formControlName="tipoContaDestino">
+                  <select class="form-control"
+                    formControlName="tipoContaDestino"
+                    [class.is-invalid]="exibeErro('tipoContaDestino')">
                     <option value="CORRENTE" selected>Conta Corrente</option>
                     <option value="CREDITO">Conta Crédito</option>
                   </select>
+                  <div *ngIf="exibeErro('tipoContaDestino')" class="invalid-feedback">
+                    Tipo da conta destino inválido.
+                  </div>
                 </div>
               </div>
             </div>
@@ -79,9 +102,11 @@
               Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
             </button>
           </form>
-
         </div>
         <div class=" card-footer">
+          <div *ngIf="erroLancamento" class="alert alert-warning" role="alert">
+            Saldo insuficiente.
+          </div>
         </div>
       </div>
     </div>
