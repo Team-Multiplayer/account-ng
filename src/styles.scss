@@ -1,10 +1,168 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Saira:wght@300;400;700;900&family=Spartan:wght@300;400;700;900&display=swap');
-
 h1,h2,h3,h4,h5,h6 {
-  font-family: "Spartan", sans-serif;
+   font-family: 'Spartan', sans-serif !important;
 }
 
-p, span {
-  font-family: "Saira", sans-serif;
+button, a {
+  cursor: pointer !important;
+  outline: none;
+
+  &:active {
+    outline: none !important;
+  }
+
+  &:focus {
+    outline: none !important;
+  }
 }
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-25 {
+  font-size: 25px;
+}
+
+.fs-30 {
+  font-size: 30px;
+}
+
+
+.nav--link {
+  background: transparent;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+
+  position: relative;
+  margin-top: 2em;
+
+  border: none;
+  text-decoration: none;
+
+  & span {
+    color: #46e2b3;
+  }
+}
+
+.nav--link:after {
+  display:block;
+  content: '';
+  border-radius: 8px;
+  border-bottom: solid 3px #46e2b3;
+  transform: scaleX(0);
+  transition: transform 350ms ease-in-out;
+  transform-origin:100% 50%
+}
+
+.nav--link:active:after,
+.nav--link:focus:after,
+.nav--link:hover:after {
+  transform: scaleX(1);
+  transform-origin:0 50%;
+}
+
+
+// BOTÃO PARA REPETIR TRANSAÇÕES
+
+.repeat--payment {
+  background: transparent;
+  color: #fff;
+  min-width: 150px;
+  height: 40px;
+  border: none;
+  // border: 2px solid #46e2b3;
+  transition: 0.2s ease-in-out;
+
+  &:hover i {
+    transition: 0.3s ease-in-out;
+    transform: rotate(360deg);
+  }
+
+}
+
+.disabled-btn {
+  opacity: 0.3;
+
+  &:hover {
+    cursor: default !important;
+  }
+}
+
+
+// SUCCESS MESSAGE STYLES
+
+.success--message {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.show-message {
+  display: block;
+  animation: show 2s 1;
+  transform: translateY(-16px);
+
+  @keyframes show {
+    0% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(-16px);
+    }
+  }
+}
+
+
+
+// .custom--btn {
+//   background: transparent !important;
+//   color: #fff;
+//   position: relative;
+//   width: 150px;
+//   height: 40px;
+//   padding: 0.4em 2em;
+//   border: 2px solid #fff;
+//   transition: 0.2s ease-in-out;
+//   &:hover {
+//     color: #000;
+//   }
+
+//   &>span {
+//     position: absolute;
+//     color: #000;
+//     z-index: 50;
+//   }
+// }
+
+// .custom--btn:before {
+//     content: '';
+//     background: #fff;
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+//     transform: scaleX(0);
+//     transition: 0.2s ease-in-out;
+//     z-index: 0;
+// }
+
+// .custom--btn:hover:before,
+// .custom--btn:active:before,
+// .custom--btn:focus:before {
+//   transform: scaleX(1);
+// }
+
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

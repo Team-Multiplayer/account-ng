@@ -1,0 +1,51 @@
+<div class="login container d-flex justify-content-around">
+  <div class="login-wrapper">
+    <h1 class="">Logar na Account</h1>
+    <form class="p-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class=" form-group" data-aos="fade-left" data-aos-delay="200">
+        <label for="login"> Login </label>
+        <input
+          class="form-control"
+          placeholder="Seu login"
+          type="text"
+          formControlName="login"
+          #loginInput
+          [class.is-invalid]="exibeErro('login')"
+        />
+        <div *ngIf="exibeErro('login')" class="invalid-feedback">
+          Usuário inválido.
+        </div>
+      </div>
+
+      <div class=" form-group" data-aos="fade-left" data-aos-delay="300">
+        <label for="senha"> Senha </label>
+        <input
+          class="form-control"
+          placeholder="Sua senha"
+          type="password"
+          formControlName="senha"
+          #senhaInput
+          [class.is-invalid]="exibeErro('senha')"
+        />
+        <div *ngIf="exibeErro('senha')" class="invalid-feedback">
+          Senha inválida.
+        </div>
+      </div>
+
+      <p *ngIf="erroNoLogin">
+        Usuário ou senha inválidos.
+      </p>
+
+      <button
+        class="nav--link"
+        type="submit"
+        [disabled]="estaCarregando"
+      >Logar<span>!</span></button>
+    </form>
+
+    <p> Não possui uma conta? <a routerLink="/cadastrar"> Crie agora mesmo.</a> </p>
+
+  </div>
+  <img src="../../../../assets/img/login.png" height="370" alt="imagem de uma moça fazendo login" data-aos="fade-up">
+
+</div>

@@ -1,32 +1,44 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
+import { DEFAULT_CURRENCY_CODE, LOCALE_ID, NgModule } from "@angular/core";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
-import { ToastrModule } from 'ngx-toastr';
 
 import { AppComponent } from "./app.component";
-import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
-import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import localePT from '@angular/common/locales/pt';
 
 import { AppRoutingModule } from "./app-routing.module";
-import { ComponentsModule } from "./components/components.module";
+import { AuthLayoutModule } from "src/app/layouts/auth-layout/auth-layout.module";
+import { AdminLayoutModule } from "src/app/layouts/admin-layout/admin-layout.module";
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { registerLocaleData } from "@angular/common";
+import { BrowserModule } from "@angular/platform-browser";
+
+registerLocaleData(localePT, 'pt');
 
 @NgModule({
   imports: [
+    BrowserModule,
     BrowserAnimationsModule,
-    FormsModule,
     HttpClientModule,
-    ComponentsModule,
+    AuthLayoutModule,
+    AdminLayoutModule,
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    ToastrModule.forRoot()
+    FontAwesomeModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  declarations: [
+    AppComponent,
+  ],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pt'
+  }, {
+    provide: DEFAULT_CURRENCY_CODE,
+    useValue: 'BRL'
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

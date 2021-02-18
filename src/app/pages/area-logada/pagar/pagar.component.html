@@ -1,0 +1,95 @@
+<div class=" content" data-aos="fade-right">
+
+  <h1>Realize um Pagamento</h1>
+  <div class="lancamento" [@openClose]="isOpen ? 'open' : 'closed'">
+
+    <div class=" row mt-5">
+    <div class=" col-md-8 mx-auto">
+      <div class=" card">
+        <div class=" card-header"><h5 class=" title">Pagar</h5></div>
+        <div class=" card-body">
+          <form [formGroup]="lancamentoForm" (ngSubmit)="sendLancamento()">
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Valor (R$) </label>
+                  <input
+                    class=" form-control"
+                    placeholder=""
+                    type="number"
+                    value=""
+                    maxlength="7"
+                    formControlName="valor"
+                  />
+                </div>
+              </div>
+              <div class=" col-md-7">
+                <div class=" form-group">
+                  <label> Tipo da conta </label>
+                  <select class="form-control" formControlName="idContaUsuario">
+                    <option value="{{contaCorrente.id}}" selected>Conta Corrente</option>
+                    <option value="{{contaCredito.id}}">Conta Crédito</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div class=" row">
+              <!-- <div class=" col-md-3 pr-md-1">
+                <div class=" form-group">
+                  <label> Categoria </label>
+                  <input
+                    class=" form-control"
+                    placeholder=""
+                    type="text"
+                    value=""
+                    formControlName="categoria"
+                  />
+                </div>
+              </div> -->
+              <div class=" col-md-12">
+                <div class=" form-group">
+                  <label> Descrição da transação </label>
+                  <input
+                    class=" form-control"
+                    placeholder=""
+                    type="text"
+                    maxlength="50"
+                    formControlName="descricao"
+                  />
+                </div>
+              </div>
+            </div>
+            <button
+              [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
+              class="nav--link"
+              [disabled]="lancamentoForm.invalid"
+              type="submit"
+            >
+              Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="success--message" [ngClass]="{'show-message': isOpen}">
+    <h1>Transação realizada com sucesso!</h1>
+    <div [ngClass]="{'expand-box': isOpen}">
+      <h5>Valor: {{lancamentoForm.value.valor | currency}}</h5>
+      <h5>Descrição: {{lancamentoForm.value.descricao}}</h5>
+      <h5>Destino: {{lancamentoForm.value.numeroContaDestino}}</h5>
+      <h5>Tipo: {{lancamentoForm.value.tipo}}</h5>
+
+      <button class="repeat--payment" (click)="[toggle(), resetForm()]">
+        Novo Pagamento
+        <i class="tim-icons icon-refresh-01 ml-1 text-success"></i>
+      </button>
+    </div>
+  </div>
+
+</div>
+

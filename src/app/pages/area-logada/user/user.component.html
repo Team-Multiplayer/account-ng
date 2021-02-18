@@ -1,0 +1,54 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header"><h5 class=" title">Seus dados</h5></div>
+        <div class=" card-body">
+          <form [formControl]="formUser">
+            <div class=" row">
+              <div class=" col-md-12">
+                <div class=" form-group">
+                  <label> Nome </label>
+                  <input
+                    class=" form-control"
+                    type="text"
+                    value="Danilo Elias"
+                    formControlName="nome"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-7 pr-md-1">
+                <div class=" form-group">
+                  <label> CPF </label>
+                  <input
+                    class=" form-control"
+                    type="text"
+                    value="123.123.123-12"
+                    formControlName="cpf"
+                  />
+                </div>
+              </div>
+              <div class=" col-md-5">
+                <div class=" form-group">
+                  <label> Login </label>
+                  <input
+                    class=" form-control"
+                    type="text"
+                    value="danilose"
+                    formControlName="login"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- <div class=" card-footer">
+          <button class=" btn btn-fill btn-danger" type="submit">Save</button>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

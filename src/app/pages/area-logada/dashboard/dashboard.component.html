@@ -1,0 +1,260 @@
+<div class="content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card" data-aos="fade">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-12 text-left">
+              <div class="dashboard-header d-flex align-items-center justify-content-between pb-3">
+                <div>
+                  <h2 class="card-title mb-4">Dashboard</h2>
+                  <h1>Saldo Total<br><h4>{{saldo | currency}}</h4></h1>
+                </div>
+
+                <div class="articles--section d-flex">
+                  <!-- <div class="article">
+                    <h5 class="my-0">Algumas dicas para não gastar todo o seu salário antes do fim do mês.</h5>
+                    <button class="nav--link">ler Artigo</button>
+                  </div> -->
+                  <div class="article">
+                    <h3>Dica do dia</h3>
+                    <h5 class="my-0">Deseja iniciar seus investimentos em ações?
+                      Ou até mesmo Criptomoedas? Conheça as principais dicas
+                      para começar com o pé direito.
+                    </h5>
+                    <button class="nav--link">
+                      ler Artigo <i class="fas fa-book-open"></i>
+                    </button>
+                  </div>
+
+                </div>
+
+                <div class="credit-card--wrapper">
+                  <h3>Cartão virtual</h3>
+                  <div>
+
+                    <i class="tim-icons icon-credit-card virtual-card-silver" (click)="changeCard('silver')"></i>
+                    <i class="tim-icons icon-credit-card virtual-card-black" (click)="changeCard('black')"></i>
+                    <i class="tim-icons icon-credit-card virtual-card-gold" (click)="changeCard('gold')"></i>
+                    <i class="tim-icons icon-credit-card virtual-card-purple" (click)="changeCard('purple')"></i>
+
+                  </div>
+                  <div class="creditCard-body your-cards--card" *ngIf="cardColor === 'black'">
+                    <div class="creditCard-inner">
+                      <div class="creditCard-front dark-bg-front">
+                        <h5 class="creditCard-title silver-text">Black</h5>
+                        <div class="creditCard-middle">
+                          <div class="creditCard-chip">
+                            <div class="creditCard-circuit">
+                            </div>
+                          </div>
+                          <p class="creditCard-text silver-text">Unlimited</p>
+                        </div>
+                      </div>
+                      <div class="creditCard-back dark-bg-back">
+                        <div class="creditCard-back--line bg-dark"></div>
+                        <div class="creditCard-back--line light-bg text-right text-dark pr-2 pt-1 w-75">318</div>
+                        <h5 class="creditCard-back--title mt-2 ml-2">4865 1567 9841 3549</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="creditCard-body your-cards--card middle-card" *ngIf="cardColor === 'gold'">
+                    <div class="creditCard-inner">
+                      <div class="creditCard-front gold-bg-front">
+                        <h5 class="creditCard-title gold-text">Gold</h5>
+                        <div class="creditCard-middle">
+                          <div class="creditCard-chip">
+                            <div class="creditCard-circuit"></div>
+                          </div>
+                          <p class="creditCard-text gold-text">Platinum</p>
+                        </div>
+                      </div>
+                      <div class="creditCard-back gold-bg-back">
+                        <div class="creditCard-back--line"></div>
+                        <div class="creditCard-back--line light-bg text-right text-dark w-75 pr-2 pt-1">318</div>
+                        <h5 class="creditCard-back--title gold-text mt-2 ml-2">4865 1567 9841 3549</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="creditCard-body your-cards--card" *ngIf="cardColor === 'silver'">
+                    <div class="creditCard-inner">
+                      <div class="creditCard-front silver-bg-front">
+                        <h5 class="creditCard-title text-dark">Silver</h5>
+                        <div class="creditCard-middle">
+                          <div class="creditCard-chip">
+                            <div class="creditCard-circuit"></div>
+                          </div>
+                          <p class="creditCard-text text-dark">Business</p>
+                        </div>
+                      </div>
+                      <div class="creditCard-back silver-bg-back">
+                        <div class="creditCard-back--line"></div>
+                        <div class="creditCard-back--line light-bg text-right text-dark pr-2 pt-1 w-75">318</div>
+                        <h5 class="creditCard-back--title text-dark mt-2 ml-2">4865 1567 9841 3549</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                   <div class="creditCard-body your-cards--card" *ngIf="cardColor === 'purple'">
+                    <div class="creditCard-inner">
+                      <div class="creditCard-front purple-bg-front">
+                        <h5 class="creditCard-title text-white">Purple</h5>
+                        <div class="creditCard-middle">
+                          <div class="creditCard-chip">
+                            <div class="creditCard-circuit"></div>
+                          </div>
+                          <p class="creditCard-text text-white">Modern</p>
+                        </div>
+                      </div>
+                      <div class="creditCard-back purple-bg-back">
+                        <div class="creditCard-back--line"></div>
+                        <div class="creditCard-back--line light-bg text-right text-dark pr-2 pt-1 w-75">318</div>
+                        <h5 class="creditCard-back--title text-white mt-2 ml-2">4865 1567 9841 3549</h5>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class=" col-lg-6">
+      <div class=" card card-chart" data-aos="fade-up">
+        <div class=" card-header">
+          <div class="card--header-title">
+            <h5 class=" card-category">
+              Conta Banco - <span>Últimos lançamentos</span>
+              <i class=" tim-icons icon-bank text-danger"></i>
+            </h5>
+            <div class="form-inline">
+              <div class="form-group hidden calendar-panel">
+                <div class="input-group">
+                  <input name="datepicker"
+                        class="form-control"
+                        ngbDatepicker
+                        #datepicker="ngbDatepicker"
+                        [autoClose]="'outside'"
+                        (dateSelect)="onDateSelection($event)"
+                        [displayMonths]="2"
+                        [dayTemplate]="t"
+                        outsideDays="hidden"
+                        [startDate]="fromDate!"
+                        tabindex="-1">
+                  <ng-template #t let-date let-focused="focused">
+                    <span class="custom-day"
+                          [class.focused]="focused"
+                          [class.range]="isRange(date)"
+                          [class.faded]="isHovered(date) || isInside(date)"
+                          (mouseenter)="hoveredDate = date"
+                          (mouseleave)="hoveredDate = null">
+                      {{ date.day }}
+                    </span>
+                  </ng-template>
+                </div>
+              </div>
+            </div>
+            <div class="input-group">
+              <input #dpFromDate
+                    class="form-control" placeholder="yyyy-mm-dd"
+                    name="dpFromDate"
+                    [value]="formatter.format(fromDate)"
+                    (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar-btn calendar" (click)="datepicker.toggle()" type="button">
+                  <i class="far fa-calendar-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <h3 class=" card-title">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="contaCorrente && !estaCarregando && !erro">
+                <tr *ngIf="contaCorrente.lancamentos.length == 0; else mostraLancamentos">
+                  <td colSpan=3>Sem lançamentos</td>
+                </tr>
+                <ng-template #mostraLancamentos>
+                  <tr *ngFor="let lancamento of contaCorrente.lancamentos">
+                    <td class="fs-20">{{lancamento.data | date}}</td>
+                    <td class="fs-20">{{lancamento.descricao}}</td>
+                    <td class="text-right fs-20">{{lancamento.valor | currency}}</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"></div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-lg-6">
+      <div class=" card card-chart" data-aos="fade-up" data-aos-delay="300">
+        <div class=" card-header">
+          <div>
+            <h5 class=" card-category">Conta Crédito - <span>Últimos lançamentos</span>
+              <i class="tim-icons icon-coins text-success"> </i>
+            </h5>
+            <div class="form-group ml-2">
+              <div class="input-group">
+                <input #dpToDate
+                  class="form-control" placeholder="yyyy-mm-dd"
+                  name="dpToDate"
+                  [value]="formatter.format(toDate)"
+                  (input)="toDate = validateInput(toDate, dpToDate.value)">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar-btn calendar" (click)="datepicker.toggle()" type="button">
+                    <i class="far fa-calendar-alt"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class=" card-title">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="contaCredito && !estaCarregando && !erro">
+                <tr *ngIf="contaCredito.lancamentos.length == 0">
+                  <td colSpan=3>Sem lançamentos</td>
+                </tr>
+                <tr *ngFor="let lancamento of contaCredito.lancamentos">
+                  <td class="fs-20">{{lancamento.data | date}}</td>
+                  <td class="fs-20">{{lancamento.descricao}}</td>
+                  <td class="text-right fs-20">{{lancamento.valor | currency}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

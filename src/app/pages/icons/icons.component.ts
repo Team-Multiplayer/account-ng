@@ -6,6 +6,6 @@ import { Component, OnInit } from "@angular/core";
 })
 export class IconsComponent implements OnInit {
   constructor() {}
-
+// Será deletado, deixar apenas enquanto tiver que pegar ícones.
   ngOnInit() {}
 }

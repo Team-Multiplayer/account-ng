@@ -3,6 +3,7 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from "src/app/service/auth/auth.service";
 
 @Component({
   selector: "app-navbar",
@@ -10,25 +11,34 @@ import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ["./navbar.component.css"]
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  private listTitles: any[];
+  private listTitles: any[] | undefined;
   location: Location;
-  mobile_menu_visible: any = 0;
+  mobile_menu_visible: number = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
 
-  public isCollapsed = true;
+  userName: string | undefined;
 
-  closeResult: string;
+  public isCollapsed = true;
+  closeResult: string | undefined;
+
+  // closeResult: string;
 
   constructor(
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private authService: AuthService
   ) {
     this.location = location;
     this.sidebarVisible = false;
   }
+
+  logout() {
+    this.authService.logout();
+  }
+
   // function that adds color white/transparent to the navbar on resize (this is for the collapse)
    updateColor = () => {
    var navbar = document.getElementsByClassName('navbar')[0];
@@ -53,6 +63,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
         this.mobile_menu_visible = 0;
       }
     });
+
+    const user = this.authService.getUsuario();
+    this.userName = user.nome.split(' ')[0];
   }
 
   collapse() {
@@ -94,7 +107,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
 
     if (window.innerWidth < 991) {
       setTimeout(function() {
-        mainPanel.style.position = "";
+        // mainPanel.style.position = "";
       }, 500);
     }
     this.sidebarVisible = false;
@@ -112,6 +125,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
     const html = document.getElementsByTagName("html")[0];
 
+    var $layer = document.createElement("div");
+    $layer.setAttribute("class", "close-layer");
     if (this.mobile_menu_visible == 1) {
       // $('html').removeClass('nav-open');
       html.classList.remove("nav-open");
@@ -128,8 +143,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
         $toggle.classList.add("toggled");
       }, 430);
 
-      var $layer = document.createElement("div");
-      $layer.setAttribute("class", "close-layer");
 
       if (html.querySelectorAll(".main-panel")) {
         document.getElementsByClassName("main-panel")[0].appendChild($layer);
@@ -143,7 +156,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
         $layer.classList.add("visible");
       }, 100);
 
-      $layer.onclick = function() {
+      $layer.onclick = () => {
         //asign a function
         html.classList.remove("nav-open");
         this.mobile_menu_visible = 0;
@@ -152,7 +165,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
           $layer.remove();
           $toggle.classList.remove("toggled");
         }, 400);
-      }.bind(this);
+      };
+      NavbarComponent.bind(this);
 
       html.classList.add("nav-open");
       this.mobile_menu_visible = 1;
@@ -170,10 +184,10 @@ export class NavbarComponent implements OnInit, OnDestroy {
         return this.listTitles[item].title;
       }
     }
-    return "Dashboard";
+    return "Bank";
   }
 
-  open(content) {
+  open(content: any) {
     this.modalService.open(content, {windowClass: 'modal-search'}).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {

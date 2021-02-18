@@ -1,0 +1,21 @@
+.login{
+  margin-top: 100px;
+  margin-bottom: 200px;
+}
+
+.login-wrapper {
+  max-width: 500px;
+  width: -webkit-fill-available;
+}
+
+@media (max-width: 800px) {
+  .login {
+    flex-direction: column;
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .login-wrapper {
+    margin-bottom: 32px;
+  }
+}

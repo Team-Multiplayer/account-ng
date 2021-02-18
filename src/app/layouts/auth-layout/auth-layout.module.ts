@@ -1,20 +1,39 @@
+import { AboutComponent } from './../../pages/area-auth/about/about/about.component';
+import { HomeComponent } from './../../pages/area-auth/home/home.component';
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AuthLayoutRoutes } from './auth-layout.routing';
+import { RegisterComponent } from 'src/app/pages/area-auth/register/register.component';
+import { LoginComponent } from 'src/app/pages/area-auth/login/login.component';
+import { RouterModule } from '@angular/router';
+import { AuthLayoutRoutes } from 'src/app/layouts/auth-layout/auth-layout.routing';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from "@angular/common/http";
+import { SharedModule } from '../../shared/shared.module';
+import { AuthLayoutComponent } from 'src/app/layouts/auth-layout/auth-layout.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeaderComponent } from 'src/app/shared/header/header.component';
+import { NaoLogadoGuard } from 'src/app/shared/guards/nao-logado/nao-logado.guard';
 
 @NgModule({
+  declarations: [
+    HomeComponent,
+    LoginComponent,
+    RegisterComponent,
+    AuthLayoutComponent,
+    AboutComponent
+  ],
   imports: [
+    FontAwesomeModule,
+    BrowserAnimationsModule,
     CommonModule,
     RouterModule.forChild(AuthLayoutRoutes),
-    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    SharedModule
   ],
-  declarations: [
-  ]
+  exports: [RouterModule],
 })
 export class AuthLayoutModule { }
