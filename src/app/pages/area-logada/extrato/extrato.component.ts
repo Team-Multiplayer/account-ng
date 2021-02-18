@@ -1,6 +1,8 @@
+import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDate, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { finalize } from 'rxjs/operators';
+import { DashboardService } from 'src/app/pages/area-logada/dashboard/dashboard.service';
 import { ExtratoService } from './extrato.service';
 
 @Component({
@@ -9,27 +11,8 @@ import { ExtratoService } from './extrato.service';
   styleUrls: ['./extrato.component.scss']
 })
 export class ExtratoComponent implements OnInit {
-  // public chartType: string = 'pie';
 
-  // public chartDatasets: Array<any> = [
-  //   { data: [300, 50, 100, 40, 120], label: 'My First dataset' }
-  // ];
-
-  // public chartLabels: Array<any> = ['Red', 'Green', 'Yellow', 'Grey', 'Dark Grey'];
-
-  // public chartColors: Array<any> = [
-  //   {
-  //     backgroundColor: ['#F7464A', '#46BFBD', '#FDB45C', '#949FB1', '#4D5360'],
-  //     hoverBackgroundColor: ['#FF5A5E', '#5AD3D1', '#FFC870', '#A8B3C5', '#616774'],
-  //     borderWidth: 2,
-  //   }
-  // ];
-
-  // public chartOptions: any = {
-  //   responsive: true
-  // };
-
-
+  saldo: number;
 
   erro = false;
   estaCarregando = false;
@@ -47,6 +30,7 @@ export class ExtratoComponent implements OnInit {
     private calendar: NgbCalendar,
     public formatter: NgbDateParserFormatter,
     private extratoService: ExtratoService,
+    private dashboardService: DashboardService,
     ) {
 
     this.fromDate = calendar.getToday();
@@ -54,7 +38,30 @@ export class ExtratoComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.buscarDash();
     this.buscarExtrato();
+  }
+
+  buscarDash() {
+    this.estaCarregando = true
+    this.dashboardService.buscarDadosDashboard()
+    .pipe(
+      finalize(() => this.estaCarregando = false)
+    )
+    .subscribe(
+      response => this.onDashSuccess(response),
+      error => this.onDashError(error)
+    );
+  }
+
+  onDashError(error: any) {
+    this.erro = true;
+    console.log('error: ' + error );
+  }
+
+  onDashSuccess(response: any) {
+    console.log(response);
+    this.saldo = response.contaCorrente.conta.saldo;
   }
 
   buscarExtrato() {
