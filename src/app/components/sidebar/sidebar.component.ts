@@ -37,6 +37,12 @@ export const ROUTES: RouteInfo[] = [
     icon: "icon-single-02",
     class: ""
   },
+  {
+    path: "extrato",
+    title: "Extrato",
+    icon: "icon-credit-card",
+    class:""
+  },
 ];
 
 @Component({

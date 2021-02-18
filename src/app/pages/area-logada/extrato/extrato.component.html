@@ -1,0 +1,109 @@
+<div class="content">
+  <div class=" row">
+    <div class=" col-12">
+      <div class=" card">
+        <div class=" card-header">
+          <div class=" row">
+            <div class=" col-sm-12 text-left">
+              <h5 class=" card-category">Movimentações</h5>
+              <h2 class=" card-title">Extratos</h2>
+            </div>
+          </div>
+        </div>
+        <div class=" card-body">
+          <div class="row">
+            <div class=" col-sm-12">
+              <ngb-datepicker #dp (dateSelect)="onDateSelection($event)" [displayMonths]="2" [dayTemplate]="t" outsideDays="hidden">
+              </ngb-datepicker>
+              <ng-template #t let-date let-focused="focused">
+                <span class="custom-day"
+                      [class.focused]="focused"
+                      [class.range]="isRange(date)"
+                      [class.faded]="isHovered(date) || isInside(date)"
+                      (mouseenter)="hoveredDate = date"
+                      (mouseleave)="hoveredDate = null">
+                  {{ date.day }}
+                </span>
+              </ng-template>
+            </div>
+          </div>
+          <div class="row">
+            <button [disabled]="!fromDate || !toDate"
+              (click)="buscarExtrato()"
+             >Buscar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class=" row">
+    <div class=" col-lg-6">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Conta Banco - <span>Últimos lançamentos</span></h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-bank text-danger"> </i>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="contaCorrente && !estaCarregando && !erro">
+                <tr *ngIf="contaCorrente.lancamentos.length == 0; else mostraLancamentos">
+                  <td colSpan=3>Sem lançamentos</td>
+                </tr>
+                <ng-template #mostraLancamentos>
+                  <tr *ngFor="let lancamento of contaCorrente.lancamentos">
+                    <td>{{lancamento.data | date}}</td>
+                    <td>{{lancamento.descricao}}</td>
+                    <td class="text-right">{{lancamento.valor | currency}}</td>
+                  </tr>
+                </ng-template>
+              </tbody>
+            </table>
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"></div>
+        </div>
+      </div>
+    </div>
+    <div class=" col-lg-6">
+      <div class=" card card-chart">
+        <div class=" card-header">
+          <h5 class=" card-category">Conta Crédito - <span>Últimos lançamentos</span></h5>
+          <h3 class=" card-title">
+            <i class=" tim-icons icon-coins text-success"> </i>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Data</th>
+                  <th>Descrição</th>
+                  <th>Valor</th>
+                </tr>
+              </thead>
+              <tbody *ngIf="contaCredito && !estaCarregando && !erro">
+                <tr *ngIf="contaCredito.lancamentos.length == 0">
+                  <td colSpan=3>Sem lançamentos</td>
+                </tr>
+                <tr *ngFor="let lancamento of contaCredito.lancamentos">
+                  <td>{{lancamento.data | date}}</td>
+                  <td>{{lancamento.descricao}}</td>
+                  <td class="text-right">{{lancamento.valor | currency}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </h3>
+        </div>
+        <div class=" card-body">
+          <div class=" chart-area"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

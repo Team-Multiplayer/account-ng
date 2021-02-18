@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { NgbCalendar, NgbDate } from "@ng-bootstrap/ng-bootstrap";
 import Chart from 'chart.js';
 import { finalize } from "rxjs/operators";
 import { DashboardService } from "./dashboard.service";
@@ -22,7 +23,7 @@ export class DashboardComponent implements OnInit {
   contaCredito;
 
   erro = false;
-  estaCarregando = true;
+  estaCarregando = false;
 
   constructor(
     private dashboardService: DashboardService,
@@ -30,6 +31,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    this.buscarDash();
+
+  }
+
+  buscarDash() {
+    this.estaCarregando = true
     this.dashboardService.buscarDadosDashboard()
     .pipe(
       finalize(() => this.estaCarregando = false)
@@ -38,7 +45,6 @@ export class DashboardComponent implements OnInit {
       response => this.onSuccess(response),
       error => this.onError(error)
     );
-
   }
 
   onError(error: any) {
@@ -47,13 +53,9 @@ export class DashboardComponent implements OnInit {
   }
 
   onSuccess(response: any) {
-
-    console.log('response: ' + response);
-
     this.contaCorrente = response.contaCorrente;
     this.contaCredito = response.contaCredito;
-
   }
-;
+
 }
 
