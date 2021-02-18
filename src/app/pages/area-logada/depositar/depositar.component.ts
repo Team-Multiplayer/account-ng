@@ -1,6 +1,7 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginComponent } from 'src/app/pages/area-auth/login/login.component';
 import { LancamentoService } from 'src/app/service/lancamento/lancamento.service';
 
 @Component({

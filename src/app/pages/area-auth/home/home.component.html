@@ -1,5 +1,6 @@
 <div class="home-body">
-  <section class="banner">
+  <button class="scroll-top-button" (click)="scroll(target)" *ngIf="showTopBtn"><i class="fas fa-arrow-circle-up fa-2x text-white"></i></button>
+  <section class="banner" #target>
     <div class="banner--content-text">
       <h1 data-aos="fade-up">Um banco <span>feito</span> especialmente <span>para você</span>.</h1>
       <div class="banner--content-subtext d-flex">
