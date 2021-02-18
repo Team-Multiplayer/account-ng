@@ -12,13 +12,13 @@
             <div class=" row">
               <div class=" col-md-5 pr-md-1">
                 <div class=" form-group">
-                  <label> Nº da conta </label>
+                  <label> Nº da sua conta </label>
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="text"
+                    type="number"
                     value=""
-                    formControlName="numeroContaUsuario"
+                    formControlName="idContaUsuario"
                   />
                 </div>
               </div>
@@ -28,8 +28,9 @@
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="text"
+                    type="number"
                     value=""
+                    maxlength="7"
                     formControlName="valor"
                   />
                 </div>
@@ -39,6 +40,7 @@
                   <label> Tipo de transação </label>
                   <input
                     class=" form-control"
+                    disabled
                     placeholder=""
                     type="text"
                     value=""
@@ -47,8 +49,9 @@
                 </div>
               </div>
             </div>
+
             <div class=" row">
-              <div class=" col-md-3 pr-md-1">
+              <!-- <div class=" col-md-3 pr-md-1">
                 <div class=" form-group">
                   <label> Categoria </label>
                   <input
@@ -59,32 +62,30 @@
                     formControlName="categoria"
                   />
                 </div>
-              </div>
-              <div class=" col-md-9 pl-md-1">
+              </div> -->
+              <div class=" col-md-8 pr-md-1">
                 <div class=" form-group">
                   <label for="exampleInputEmail1"> Descrição da transação </label>
                   <input
                     class=" form-control"
                     placeholder=""
-                    type="email"
+                    type="text"
+                    maxlength="50"
                     formControlName="descricao"
                   />
                 </div>
               </div>
             </div>
+            <button
+              [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
+              class="nav--link"
+              [disabled]="!lancamentoForm.valid"
+              type="submit"
+            >
+              Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
+            </button>
           </form>
 
-        </div>
-        <div class=" card-footer">
-          <button
-            [ngClass]="{'disabled-btn': lancamentoForm.invalid}"
-            class="nav--link"
-            [disabled]="!lancamentoForm.valid"
-            (click)="toggle()"
-            type="submit"
-          >
-            Confirmar <i class="tim-icons icon-check-2 ml-1 text-success"></i>
-          </button>
         </div>
       </div>
     </div>

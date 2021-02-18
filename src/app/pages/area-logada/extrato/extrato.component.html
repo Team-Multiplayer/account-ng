@@ -1,7 +1,7 @@
 <div class="content">
   <div class=" row">
     <div class=" col-12">
-      <div class=" card">
+      <div class=" card" data-aos="fade">
         <div class=" card-header">
           <div class=" row">
             <div class=" col-sm-12 text-left">
@@ -11,19 +11,6 @@
                   <h1>Saldo Total<br><h4>{{saldo | currency}}</h4></h1>
                 </div>
 
-
-                <!-- <div style="display: block">
-                  <canvas mdbChart
-                      [chartType]="chartType"
-                      [datasets]="chartDatasets"
-                      [labels]="chartLabels"
-                      [colors]="chartColors"
-                      [options]="chartOptions"
-                      [legend]="true"
-                      (chartHover)="chartHovered($event)"
-                      (chartClick)="chartClicked($event)">
-                  </canvas>
-                </div> -->
                 <div class="articles--section d-flex">
                   <!-- <div class="article">
                     <h5 class="my-0">Algumas dicas para não gastar todo o seu salário antes do fim do mês.</h5>
@@ -31,8 +18,13 @@
                   </div> -->
                   <div class="article">
                     <h3>Dica do dia</h3>
-                    <h5 class="my-0">Deseja iniciar seus investimentos em ações? Ou até mesmo Criptomoedas? Conheça as principais dicas para iniciar com o pé direito.</h5>
-                    <button class="nav--link">ler Artigo <i class="fas fa-book-open"></i></button>
+                    <h5 class="my-0">Deseja iniciar seus investimentos em ações?
+                      Ou até mesmo Criptomoedas? Conheça as principais dicas
+                      para começar com o pé direito.
+                    </h5>
+                    <button class="nav--link">
+                      ler Artigo <i class="fas fa-book-open"></i>
+                    </button>
                   </div>
 
                 </div>
@@ -46,9 +38,6 @@
                     <i class="tim-icons icon-credit-card virtual-card-gold" (click)="changeCard('gold')"></i>
                     <i class="tim-icons icon-credit-card virtual-card-purple" (click)="changeCard('purple')"></i>
 
-                    <!-- <button class="silver-select" (click)="changeCard('silver')"></button>
-                    <button class="gold-select" (click)="changeCard('gold')"></button>
-                    <button class="black-select" (click)="changeCard('black')"></button> -->
                   </div>
                   <div class="creditCard-body your-cards--card" *ngIf="cardColor === 'black'">
                     <div class="creditCard-inner">
@@ -70,7 +59,6 @@
                     </div>
                   </div>
 
-
                   <div class="creditCard-body your-cards--card middle-card" *ngIf="cardColor === 'gold'">
                     <div class="creditCard-inner">
                       <div class="creditCard-front gold-bg-front">
@@ -89,7 +77,6 @@
                       </div>
                     </div>
                   </div>
-
 
                   <div class="creditCard-body your-cards--card" *ngIf="cardColor === 'silver'">
                     <div class="creditCard-inner">
@@ -136,15 +123,13 @@
           </div>
         </div>
 
-
-
       </div>
     </div>
   </div>
 
   <div class=" row">
     <div class=" col-lg-6">
-      <div class=" card card-chart">
+      <div class=" card card-chart" data-aos="fade-up">
         <div class=" card-header">
           <div class="card--header-title">
             <h5 class=" card-category">
@@ -222,7 +207,7 @@
       </div>
     </div>
     <div class=" col-lg-6">
-      <div class=" card card-chart">
+      <div class=" card card-chart" data-aos="fade-up" data-aos-delay="300">
         <div class=" card-header">
           <div>
             <h5 class=" card-category">Conta Crédito - <span>Últimos lançamentos</span>

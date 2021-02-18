@@ -35,9 +35,9 @@ export class DepositarComponent implements OnInit {
   lancamentoForm = this.formBuilder.group({
     idContaUsuario:     ['', Validators.required],
     descricao:          ['', Validators.required],
-    categoria:          ['', Validators.required],
     valor:              ['', Validators.required],
     tipo:               ['', Validators.required],
+    categoria:          [1],
   })
 
 

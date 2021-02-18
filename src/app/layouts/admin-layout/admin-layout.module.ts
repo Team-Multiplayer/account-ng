@@ -5,7 +5,6 @@ import { CommonModule } from "@angular/common";
 import {ReactiveFormsModule } from "@angular/forms";
 
 import { AdminLayoutRoutes } from "./admin-layout.routing";
-import { DashboardComponent } from "../../pages/area-logada/dashboard/dashboard.component";
 import { UserComponent } from "../../pages/area-logada/user/user.component";
 
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
@@ -18,7 +17,6 @@ import { ExtratoComponent } from "src/app/pages/area-logada/extrato/extrato.comp
 
 @NgModule({
   declarations: [
-    DashboardComponent,
     UserComponent,
     AdminLayoutComponent,
     DepositarComponent,

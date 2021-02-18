@@ -2,7 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgbCalendar, NgbDate, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
 import { finalize } from 'rxjs/operators';
-import { DashboardService } from 'src/app/pages/area-logada/dashboard/dashboard.service';
+import { DashboardService } from 'src/app/pages/area-logada/extrato/dashboard.service';
 import { ExtratoService } from './extrato.service';
 
 @Component({
@@ -43,6 +43,10 @@ export class ExtratoComponent implements OnInit {
   }
 
   buscarDash() {
+    if (this.saldo) {
+      return null;
+    }
+
     this.estaCarregando = true
     this.dashboardService.buscarDadosDashboard()
     .pipe(
@@ -52,6 +56,7 @@ export class ExtratoComponent implements OnInit {
       response => this.onDashSuccess(response),
       error => this.onDashError(error)
     );
+
   }
 
   onDashError(error: any) {

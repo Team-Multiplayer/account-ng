@@ -1,4 +1,4 @@
-import { Conta } from "src/app/shared/interfaces/conta.interface";
+import { Conta } from "src/app/shared/interfaces/dash-interfaces/conta.interface";
 
 export interface Usuario {
   id: number;

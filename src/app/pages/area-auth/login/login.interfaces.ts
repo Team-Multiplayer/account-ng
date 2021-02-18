@@ -1,5 +1,5 @@
-import { Conta } from '../../../shared/interfaces/conta.interface';
-import { Usuario } from '../../../shared/interfaces/usuario.interface';
+import { Conta } from '../../../shared/interfaces/dash-interfaces/conta.interface';
+import { Usuario } from '../../../shared/interfaces/dash-interfaces/usuario.interface';
 
 export interface LoginCredenciais {
   usuario: string;

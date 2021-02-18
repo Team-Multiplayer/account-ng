@@ -6,7 +6,6 @@ import { PagarComponent } from "src/app/pages/area-logada/pagar/pagar/pagar.comp
 import { TransferirComponent } from "src/app/pages/area-logada/transferir/transferir/transferir.component";
 import { LogadoGuard } from "src/app/shared/guards/logado/logado.guard";
 
-import { DashboardComponent } from "../../pages/area-logada/dashboard/dashboard.component";
 import { UserComponent } from "../../pages/area-logada/user/user.component";
 
 export const AdminLayoutRoutes: Routes = [
