@@ -23,23 +23,33 @@ feita em Java.
 Decidimos criar uma landing page para fazer nossa estratégia de negócio, introduzindo o usuário,
 mostrando os pontos relevantes que a empresa tem a oferecer.
 
+![Account Bank](./readme-img/home.png)
+
 ## Sobre
 
 Criamos uma página "sobre" para explicarmos como a empresa foi criada e quais os objetivos dela,
  o que ela pretende entregar.
 
+ ![Account Bank](./readme-img/sobre.png)
+
 ## Login
 
 Ao entrar na home, o usuário tem a disponibilidade de ir direto para uma página de login caso já seja cadastrado.
+
+![Account Bank](./readme-img/login.png)
 
 ## Cadastro
 
 Caso o usuário não possua uma conta, a aplicação disponibiliza uma tela apenas para cadastro.
 
+![Account Bank](./readme-img/register.png)
+
 # Dashboard
 
 Ao se autenticar, o usuário irá ser redirecionado para a dashboard. Aqui ele poderá ver seus dados e 
 utilizar as funcionalidades que a API estará servindo diretamente do backend em Java. 
+
+![Account Bank](./readme-img/dashboard.png)
 
 ## Extratos
 
